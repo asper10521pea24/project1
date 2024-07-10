@@ -1,0 +1,412 @@
+window.DigitalFeedback['https://digitalfeedback.us.confirmit.com/api/digitalfeedback/loader/prod/scenario?programKey=Eh6Au0&scenarioId=9942&programVersion=233'] = function (api) {
+ConfirmitLog(true,"CONF - ConfirmitTabExitSurvey v2.4");
+
+window.ConfirmitTabExitSurvey = function (pid,dataObject,configObject,showLog,test) {
+
+var show = showLog ? true : false;
+
+var logString = "eCommerce Exit - ";
+
+if(!pid)
+{
+	ConfirmitLog(show,logString + "pid not specified.  exiting.");
+	return;
+}
+
+if(!dataObject)
+{
+	ConfirmitLog(show,logString+"data Object not present.  exiting.");
+	return; 
+}
+  
+var pgreq = configObject.pagecount ? configObject.pagecount : 3;
+var pgvw = dataObject.views ? dataObject.views : 0;
+  
+if(pgvw < pgreq)
+{
+  	ConfirmitLog(show,logString+"Pages viewed: " + pgvw + " < required: " + pgreq + ". exiting.");
+	ConfirmitCookies.set("exitsurveynotdisplayed", 'Page count not met', {path : '/', secure:true, samesite: 'None'});
+	return; 
+}
+  
+var container = "Empty";
+var oneDayCookieName = "LOSAD";
+var surveyCookieName = pid + "_done";
+  
+if(ConfirmitCookies.get(surveyCookieName))
+{
+  ConfirmitLog(show,logString + " " + pid + " survey cookie present.  exiting.");
+  ConfirmitCookies.set("exitsurveynotdisplayed", 'Cookie', {path : '/', secure:true, samesite: 'None'});
+   return;
+}
+  
+      	// check for invited session storage element
+	if (sessionStorage.getItem("LOSADivt"))
+	{
+        ConfirmitLog(show,logString + " " + pid + " session variable present.  exiting.");
+        ConfirmitCookies.set("exitsurveynotdisplayed", 'Cookie', {path : '/', secure:true, samesite: 'None'});
+		return;
+	}
+  
+if(ConfirmitCookies.get(oneDayCookieName))
+{
+  ConfirmitLog(show,logString+" one survey a day cookie present.  exiting.");
+  ConfirmitCookies.set("exitsurveynotdisplayed", 'Cookie', {path : '/', secure:true, samesite: 'None'});
+   return;
+}
+
+	var confdbu = ""+dataObject.bu;
+	var confdbulc = confdbu.toLowerCase();
+    var doNEC = false;
+    if( confdbulc.indexOf("nec") != -1 )
+    {
+        doNEC = true;
+    }
+  
+var plang = dataObject.lc ? dataObject.lc : "en";
+//var slang = getLang( plang );
+var cntry = dataObject.cc ? dataObject.cc : "us";
+var slang = getLang( plang, cntry, doNEC, pid );
+  
+ConfirmitLog(show,logString+"lc from data object: " + plang);
+ConfirmitLog(show,logString+"Confirmit language code: " + slang); 
+
+var dstr = JSON.stringify(dataObject);
+ConfirmitLog(show,logString+"data Object: " + dstr);
+var dObj = new Object(); // JSON.parse(dstr);
+dObj.cc = escape(dataObject.cc);
+dObj.lc = escape(dataObject.lc);
+dObj.bu = escape(dataObject.bu);
+dObj.pn = escape(dataObject.pn);
+dObj.rf = escape(dataObject.rf);
+dObj.sd = escape(dataObject.sd);
+dObj.rg = escape(dataObject.rg);
+dObj.views = escape(dataObject.views);
+dObj.im = ConfisMobile();
+dObj.lt = plt;
+dObj.gr = ""+dataObject.gr;
+
+  try{ dObj.on = lmd.purchase.orderID; } catch(e) { dObj.on = "" }
+  
+var cp = dataObject.cp 
+if( cp )
+{
+dObj.cp = escape(dataObject.cp);
+}
+
+
+//if( dObj.bu.toUpperCase() == 'B2B')
+if( false )  
+{
+ console.log( "bu B2B - switch lc to EN" );
+ dObj.lc = 'en';
+ plang = "en";
+ slang = "9";
+}
+else
+{
+ console.log( "bu not B2B - no lc switch" );
+}
+
+  
+if(ConfirmitCookies.get("QuantumMetricSessionID"))
+{
+  var qmsidv = ConfirmitCookies.get("QuantumMetricSessionID");
+  dObj.qmsid = qmsidv;
+  window.qmsid = qmsidv;
+}
+
+if(ConfirmitCookies.get("QuantumMetricUserID"))
+{
+  var qmuidv = ConfirmitCookies.get("QuantumMetricUserID");
+  dObj.qmuid = qmuidv;
+  window.qmuid = qmuidv;
+}
+  
+try { dObj.bt = escape(lmd.bu); } catch(e) { dObj.bt = "missing"; console.log(e) }
+try { dObj.bpid = escape(dataObject.bpid); } catch(e) { dObj.bpid = "missing"; console.log(e) }
+try { dObj.cn = escape(dataObject.cn); } catch(e) { dObj.cn = "missing"; console.log(e) }
+        if(typeof s != "undefined")
+        {
+                dObj.amc = escape(s.marketingCloudVisitorID);
+        }
+dObj.env = "L"; 
+  
+dObj.csr = screen.width + "x" + screen.height;
+dObj.wiw = window.innerWidth;
+dObj.l = slang;
+dObj.curl = escape(document.location.href);
+dObj.chn = escape(document.location.hostname);
+
+var sp = dataObject.sp 
+if( sp )
+{
+dObj.sp = escape(dataObject.sp);
+}
+  
+if(test)
+{
+dObj.test = 1;
+dObj.jpgtest = 1;
+}
+
+var delay = configObject.delay ? configObject.delay : 4;
+var cookieExpireDays = configObject.expire ? configObject.expire : 30; 
+//var pct = configObject.incidence ? parseInt(configObject.incidence) : 30;
+var pct = (configObject.incidence || globalSurveyConfig.incidence) ? configObject.incidence ? configObject.incidence : globalSurveyConfig.incidence : 30;
+console.log(pct);
+ 
+if( pct < 100 )
+{
+	// check nth visitor session variable on each page.  if not present, set nth visitor.
+	if (sessionStorage.getItem(pid + "_nth"))
+	{
+	  var nthvisitor  = sessionStorage.getItem(pid + "_nth") == "1" ? true : false;
+	  ConfirmitLog(show,logString + "session nth visitor: " + nthvisitor);
+	}
+	else
+	{
+	  var nthvisitor  = Math.random() < pct/100;
+	  ConfirmitLog(show,logString + "nth visitor check: " + nthvisitor);
+	  sessionStorage.setItem(pid + "_nth",nthvisitor ? "1" : "0");   // 1 to show, 0 to not show
+	}
+	
+	if(!nthvisitor)
+	{
+		ConfirmitLog(show,logString + "not nth visitor.  exiting.");
+		ConfirmitCookies.set("exitsurveynotdisplayed", 'Incident check', {path : '/', secure:true, samesite: 'None'});
+		return;
+	}
+		ConfirmitLog(show,logString + "nth visitor check passed.  running.");	
+}
+else
+{
+	ConfirmitLog(show,logString + "defaulting to 100% incidence.");
+}
+	
+	
+var invite = "DomainExitML2";
+
+  
+ConfirmitLog(show,logString+"data Object: " + JSON.stringify(dObj));
+
+var fn = function () {
+  
+      	// check for invited session storage element
+	if (sessionStorage.getItem("LOSADivt"))
+	{
+        ConfirmitLog(show,logString + " " + pid + " session variable present.  exiting.");
+        //ConfirmitCookies.set("exitsurveynotdisplayed", 'Cookie', {path : '/', secure:true, samesite: 'None'});
+		return;
+	}
+
+var cfstr = "Ecomm|Exit Survey|" + pid;
+
+try{
+lmd.survey = {};
+lmd.survey.surveytype = cfstr;
+lmd.survey.interaction = "Exit survey Invite : invitation";
+}
+catch(e)
+{
+	console.log( 'error setting lmd: ' + e );
+}
+
+ var dnow = new Date();
+ var topis = (dnow.getTime() - parseInt(plt) )/1000;
+ dObj.topis = topis;
+  
+    ConfirmitLog(show,"showing invite");
+
+			  const rptcfg = { //FOR INVITE COUNTS TO SHOW ON METRICS PAGE
+				countInvitePresented: true,
+				countInviteAccepted: true,
+				countInviteClosed: true,
+				countInviteDeclined: true
+			  }
+              
+	var ctx = api(rptcfg);
+  	ctx.invite(invite);
+	ctx.container(container);
+    ctx.survey(pid);
+	ctx.data(dObj);
+	ctx.show();
+	sessionStorage.setItem("LOSADivt","1");
+	ConfirmitCookies.set(oneDayCookieName, '1', {path : '/', expiry : 86400, secure:true, samesite: 'None'});
+	ConfirmitCookies.set(surveyCookieName, '1', {path : '/', expiry : parseInt(cookieExpireDays)*86400, secure:true, samesite: 'None'});
+
+	var confdbu = ""+dataObject.bu;
+	var confdbulc = confdbu.toLowerCase();
+    var doNEC = false;
+    if( confdbulc.indexOf("nec") != -1 )
+    {
+        doNEC = true;
+    }
+	if( doNEC )
+	{
+		ConfirmitCookies.set(surveyCookieName, '1', {path : '/', expiry : parseInt(cookieExpireDays)*86400, secure:true, samesite: 'None', domain:'nec-lavie.jp'});
+	}
+	else
+	{	
+		ConfirmitCookies.set(surveyCookieName, '1', {path : '/', expiry : parseInt(cookieExpireDays)*86400, secure:true, samesite: 'None', domain:'lenovo.com'});
+	}
+	
+ctx.events.showInvite.on(
+  function() {
+    var itxts = getTxts(plang,cntry);
+     console.log("set line1")
+    document.getElementsByClassName('cf-invite__title')[0].innerHTML = itxts.l1;
+     console.log("set line2")
+    document.getElementsByClassName('cf-invite__content')[0].innerHTML = itxts.l2;
+     console.log("set b1")
+    document.getElementsByClassName('cf-invite__button--accept')[0].innerHTML = itxts.b1;
+     console.log("set b2")
+    document.getElementsByClassName('cf-invite__button--decline')[0].innerHTML = itxts.b2;
+     console.log("set a1")
+    document.getElementsByClassName('cf-invite-wrapper')[0].setAttribute('aria-label', itxts.al1);
+     console.log("set a2")
+    document.getElementsByClassName('cf-invite__close')[0].setAttribute('aria-label', itxts.al2);
+     console.log("set a3")
+    document.getElementsByClassName('cf-invite__button--accept')[0].setAttribute('aria-label', itxts.al3);
+	try { _satellite.track('survey-invite-prompt'); } catch(e) {console.log( 'satellite not loaded' );}
+	
+	try { _satellite.track("survey-invite-interaction"); } catch(e) {console.log( 'satellite not loaded' );}
+  });
+  
+ctx.events.closeInvite.on(
+  function() { 
+    console.log('invite closed');
+
+	try{
+	lmd.survey.interaction = "Exit survey Invite : close";
+	try { _satellite.track("survey-invite-interaction"); } catch(e) {console.log( 'satellite not loaded' );}
+	}
+	catch(e)
+	{
+		console.log( 'error setting lmd: ' + e );
+	}
+	
+  });
+
+ctx.events.declineInvite.on(
+  function() { 
+    console.log('invite declined'); 
+	
+	try{
+	lmd.survey.interaction = "Exit survey Invite : decline";
+	try { _satellite.track("survey-invite-interaction"); } catch(e) {console.log( 'satellite not loaded' );}
+	}
+	catch(e)
+	{
+		console.log( 'error setting lmd: ' + e );
+	}
+	
+  });
+
+ctx.events.acceptInvite.on(
+  function() { 
+    console.log('invite accepted'); 
+	
+	try{
+	lmd.survey.interaction = "Exit survey Invite : accept";
+	try { _satellite.track("survey-invite-interaction"); } catch(e) {console.log( 'satellite not loaded' );}
+	}
+	catch(e)
+	{
+		console.log( 'error setting lmd: ' + e );
+	}
+	
+  });
+
+ctx.events.completeSurvey.on(
+  function() { 
+    console.log('survey completed'); 
+  });
+  
+	var cnfShowButton = false
+	var cnfBtnTxt = "";
+	dObj.sbtn = "2";
+	
+    var dbccuc = dObj.cc.toUpperCase()
+    
+	if( dbccuc == "GB" || dbccuc == "IE" || dbccuc == "FR" || dbccuc == "DE" || dbccuc == "JP" || dbccuc == "NZ" || dbccuc == "TW" || dbccuc == "HK" || dbccuc == "SG" )
+	{
+		if( Math.random() < 1 )
+		{
+			cnfShowButton = true; 
+			var itxts = getTxts(plang,cntry);
+			dObj.sbtn = "1";
+		}
+	}
+  
+      cnfShowButton = true; 
+      dObj.sbtn = "1";
+      console.log( " forcing start button for all countries... " );
+  
+	ctx.events.showContainer.on(
+  function() {
+    console.log('survey shown');
+    
+	var currentURL = document.URL;
+	popWindow = window.open(currentURL, "_blank");
+    
+	//var popWindow = window.open("","survey","height=675,width=640");
+    
+    var ltitletxt = "Lenovo Exit Survey";
+    
+	var confdbu = ""+dataObject.bu;
+	var confdbulc = confdbu.toLowerCase();
+    var doNEC = false;
+    
+    if( confdbulc.indexOf("nec") != -1 )
+    {
+		ltitletxt = 'コメントカード'
+        doNEC = true;
+    }
+    else
+    {
+        ltitletxt = "Lenovo Exit Survey";
+    }
+    
+	document.documentElement.innerHTML = "<html><head><title>" + ltitletxt + "</title></head><body></body></html>";
+    
+	var head = window.document.head;
+    var body = window.document.body;
+    
+
+  
+   head.title = ltitletxt;
+    
+	
+	var newScript = popWindow.document.createElement('script');
+  	newScript.type = "text/javascript";
+    newScript.text = "(function(w,d,s,i){o=d.createElement('script'), m=d.getElementsByTagName('script')[0]; o.async=1; o.src=s; o.id=i; m.parentNode.insertBefore(o,m)})(window, document, 'https://digitalfeedback.us.confirmit.com/api/digitalfeedback/loader?programKey=oi9tgw', 'cf-program-oi9tgw')";
+	head.appendChild(newScript);
+
+	var newScript2 = popWindow.document.createElement('script');
+  	newScript2.type = "text/javascript";
+    newScript2.text = "(function(w,d,s,i){o=d.createElement('script'), m=d.getElementsByTagName('script')[0]; o.async=1; o.src=s; o.id=i; m.parentNode.insertBefore(o,m)})(window, document, 'https://assets.adobedtm.com/9f0b01d01b963414024fff848ca9d3750437e1fa/satelliteLib-cd0127785d50cbe3d3047e8ff57496baf66459fb.js', 'cf-al-01')";
+	head.appendChild(newScript2);
+
+    var mwmeta = popWindow.document.createElement("meta");
+    mwmeta.setAttribute("name", "viewport");
+    mwmeta.setAttribute("content", "width=device-width, initial-scale=1.0");
+    head.appendChild(mwmeta);
+
+	if( cnfShowButton )
+	{
+	body.innerHTML = getMWCSS2() + "" + getMonitorWindowText(plang,cntry,doNEC) + "<input name='tab' id='tab' type=hidden value='CS1'><input type=hidden id='pid' value=" + pid + "><input id='cdat' type=hidden value=" + JSON.stringify(dObj) + ">";
+    }
+    else
+    {
+	body.innerHTML = "" + getWelcomeText(plang,cntry) + "<input name='tab' id='tab' type=hidden value='CS1'><input type=hidden id='pid' value=" + pid + "><input id='cdat' type=hidden value=" + JSON.stringify(dObj) + ">";      
+    }
+  });
+  
+};
+
+
+
+setTimeout(fn, delay*1000);
+}
+};

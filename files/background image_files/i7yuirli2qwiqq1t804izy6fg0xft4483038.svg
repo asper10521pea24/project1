@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>footer-facebook</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="social-icons" fill="#0D5C91" fill-rule="nonzero">
+            <g transform="translate(0.000000, -0.000000)" id="Group">
+                <g transform="translate(0.000000, 0.000000)" id="footer-facebook">
+                    <path d="M15,0 C6.71571402,0 0,6.71625 0,15 C0,23.28375 6.71571402,30 15,30 C23.284286,30 30,23.28375 30,15 C30,6.714375 23.284286,0 15,0 Z M18.8785135,14.998125 L16.4195435,15 L16.4186003,24 L13.0456518,24 L13.0456518,15 L10.795133,15 L10.795133,11.89875 L13.0456518,11.896875 L13.0418789,10.070625 C13.0418789,7.5384375 13.7275986,6 16.7081683,6 L19.1907187,6 L19.1907187,9.103125 L17.6381815,9.103125 C16.4770798,9.103125 16.4195435,9.5371875 16.4195435,10.3453125 L16.4167138,11.8978125 L19.2076967,11.8978125 L18.8794567,14.9990625 L18.8785135,14.998125 Z"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

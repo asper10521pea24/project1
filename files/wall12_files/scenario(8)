@@ -1,0 +1,253 @@
+window.DigitalFeedback['https://digitalfeedback.us.confirmit.com/api/digitalfeedback/loader/prod/scenario?programKey=Eh6Au0&scenarioId=10087&programVersion=233'] = function (api) {
+console.log('translated exit invite texts v3.3')
+
+getTxts = function(languagecode,countrycode)
+{
+ var lstr = ""+languagecode;
+ var lstrlc = lstr.toLowerCase();
+ var lcc = ""+countrycode;
+ var lcclc = lcc.toLowerCase();
+  
+ var txts = {
+   
+	"en" : {
+	"l1" : "We value your opinion!",
+	"l2" : "After your visit would you be willing to provide some quick feedback? It will only take a minute.",
+	"b1" : "Yes!",
+	"al3" : "Yes, this will open a new window",
+	"b2" : "No thanks",
+	"al1" : "Feedback dialog",
+	"al2" : "Close feedback dialog",
+	},
+	
+	"en_nz" : {
+	"l1" : "Your opinion matters!",
+	"l2" : "Please complete a quick survey to help us improve.",
+	"b1" : "Yes",
+	"al3" : "Yes, this will open a new window",
+	"b2" : "No thanks",
+	"al1" : "Feedback dialog",
+	"al2" : "Close feedback dialog",
+	},
+	
+	"zh" : {
+	"l1" : "我們重視您的意見！",
+	"l2" : "瀏覽網站之後，您可以提供一些簡短意見嗎？過程只需一分鐘。",
+	"b1" : "是",
+	"al3" : "是, 系統將會開啟新視窗。",
+	"b2" : "不用了，謝謝",
+	"al1" : "反饋對話框",
+	"al2" : "結束對話",
+	},
+
+	"da" : {
+	"l1" : "Vi sætter pris på din mening",
+	"l2" : "Er du interesseret i at kommentere din oplevelse når dit besøg er forbi? Det tager kun et øjeblik.",
+	"b1" : "Ja",
+	"al3" : "Dette vil åbne i et nyt vindue",
+	"b2" : "Nej tak",
+	"al1" : "Feedback dialog",
+	"al2" : "Luk vinduet",
+	},
+
+	"de" : {
+	"l1" : "Ihre Meinung ist uns wichtig!",
+	"l2" : "Wären Sie bereit, nach Ihrem Besuch unserer Webseite ein paar kurze Fragen zu beantworten?",
+	"b1" : "Ja",
+	"al3" : "Ja, Dadurch wird ein neues Fenster geöffnet.",
+	"b2" : "Nein danke",
+	"al1" : "Feedback dialog",
+	"al2" : "Dialog beenden",
+	},
+
+	"es" : {
+	"l1" : "¡Apreciamos tu opinión!",
+	"l2" : "Después de tu visita, ¿estarías dispuesto a proporcionar algunos comentarios rápidos? Sólo tomará un minuto.",
+	"b1" : "Sí",
+	"al3" : "Sí, Esto abrirá una nueva ventana.",
+	"b2" : "No, gracias",
+	"al1" : "Diálogo de comentarios",
+	"al2" : "Cierra el diálogo.",
+	},
+
+	"fi" : {
+	"l1" : "Palautteesi on meille tärkeä!",
+	"l2" : "Kiitos kun kävit sivuillamme! Voisitko kertoa lyhyesti mistä pidit tai mitä voisimme tehdä paremmin?",
+	"b1" : "Kyllä",
+	"al3" : "Kyllä, Tämä avaa uuden ikkunan.",
+	"b2" : "Ei kiitos",
+	"al1" : "Palaute-valintaikkuna",
+	"al2" : "Sulje palautevalintaikkuna",
+	},
+
+	"fr" : {
+	"l1" : "Votre avis nous est précieux !",
+	"l2" : "Après avoir visité notre site Web, seriez-vous prêt à nous faire part de vos commentaires ? Cela ne prendra qu’une petite minute !",
+	"b1" : "Oui",
+	"al3" : "Oui, Une nouvelle fenêtre va s’ouvrir.",
+	"b2" : "Non merci",
+	"al1" : "Boîte de dialogue Commentaires",
+	"al2" : "Fermer la boîte de dialogue",
+	},
+
+	"fr_ca" : {
+	"l1" : "Votre opinion est importante pour nous!",
+	"l2" : "Après votre visite, seriez-vous prêt à nous faire quelques brefs commentaires? Cela ne prendra qu'une minute.",
+	"b1" : "Oui",
+	"al3" : "Oui! Une nouvelle fenêtre s'ouvrira",
+	"b2" : "Non merci.",
+	"al1" : "Boîte de dialogue de rétroaction",
+	"al2" : "Fermer la boîte de dialogue de rétroaction",
+	},
+   
+	"it" : {
+	"l1" : "La tua opinione è importante, partecipa al nostro sondaggio.",
+	"l2" : "Dopo la tua visita, vorresti rispondere a un breve questionario? Ti chiediamo solo pochi minuti.",
+	"b1" : "Sì",
+	"al3" : "Si aprirà una nuova finestra",
+	"b2" : "No, grazie",
+	"al1" : "Finestra di dialogo di feedback",
+	"al2" : "Chiudi la finestra di dialogo di feedback",
+	},
+
+	"ja" : {
+	"l1" : "お客様のご意見を、ぜひお聞かせください",
+	"l2" : "アンケートのお時間は、2～3分程度です",
+	"b1" : "はい",
+	"al3" : "はい, 新しいウィンドウが開きます",
+	"b2" : "別の機会に",
+	"al1" : "フィードバックダイアログ",
+	"al2" : "ダイアログを閉じる",
+	},
+
+	"ko" : {
+	"l1" : "고객님의 소중한 의견을 들려주세요.",
+	"l2" : "더 좋은 서비스로 보답하고자 사이트 활용에 대한 짧은 조사를 실시하고 있습니다. 바쁘시더라도 잠시 시간을 내셔서 작성 부탁드립니다.",
+	"b1" : "네",
+	"al3" : "네 새로운 창이 열립니다.",
+	"b2" : "아니오",
+	"al1" : "피드백 대화 상자",
+	"al2" : "피드백 대화 상자 닫기",
+	},
+
+   	"nl" : {
+	"l1" : "We stellen uw mening op prijs!",
+	"l2" : "Zou u na uw bezoek kort wat feedback willen geven? Het duurt maar een minuut.",
+	"b1" : "Ja!",
+	"al3" : "Ja, Er wordt een nieuw venster geopend",
+	"b2" : "Nee, bedankt.",
+	"al1" : "Dialoogvenster Feedback",
+	"al2" : "Dialoogvenster voor feedback sluiten",
+	},
+
+	"no" : {
+	"l1" : "Vi setter pris på dine meninger!",
+	"l2" : "Har du lyst til å komme med litt kjapp tilbakemelding når du er ferdig med besøket ditt? Det tar kun et minutt å svare.",
+	"b1" : "Ja",
+	"al3" : "Ja, Dette vil åpne et nytt vindu.",
+	"b2" : "Nei, takk",
+	"al1" : "Tilbakemeldingsdialog",
+	"al2" : "Lukk tilbakemeldingsdialogen",
+	},
+
+	"pt" : {
+	"l1" : "Nós valorizamos a sua opinião!",
+	"l2" : "Após a sua visita, você poderia nos conceder um rápido feedback? Vai levar apenas um minuto.",
+	"b1" : "Sim",
+	"al3" : "Sim, Uma nova janela se abrirá",
+	"b2" : "Não, obrigado.",
+	"al1" : "Caixa de diálogo Feedback",
+	"al2" : "Fechar janela",
+	},
+
+	"ru" : {
+	"l1" : "Нам важно Ваше мнение",
+	"l2" : "Вас не затруднит оставить свой отзыв? Это займет менее минуты",
+	"b1" : "Да",
+	"al3" : "Да, Откроется новое окно",
+	"b2" : "Нет",
+	"al1" : "Диалог обратной связи",
+	"al2" : "Закрыть диалог обратной связи",
+	},
+
+	"sv" : {
+	"l1" : "Dina åsikter är viktiga för oss!",
+	"l2" : "Skulle du vara villig att lämna lite snabb feedback när du avslutar ditt besök? Det tar bara en minut.",
+	"b1" : "Ja",
+	"al3" : "Ja, Detta kommer att öppnas i ett nytt fönster.",
+	"b2" : "Nej tack",
+	"al1" : "Återkopplingsdialogruta",
+	"al2" : "Stäng dialogrutan",
+	},
+
+	"th" : {
+	"l1" : "ความเห็นของคุณมีค่ากับเรา",
+	"l2" : "หลังการเยี่ยมชม คุณยินดีที่จะให้ข้อเสนอแนะสั้นๆ หรือไม่ ขั้นตอนนี้ใช้เวลาเพียงไม่กี่นาที",
+	"b1" : "ได้",
+	"al3" : "ได้, การตอบตกลงจะเปิดหน้าต่างใหม่",
+	"b2" : "ไม่ล่ะ ขอบคุณ",
+	"al1" : "กล่องโต้ตอบข้อเสนอแนะ",
+	"al2" : "ปิดกล่องโต้ตอบข้อเสนอแนะ",
+	},
+   
+	"es_mx" : {
+	"l1" : "¡Valoramos tu opinión!",
+	"l2" : "Luego de tu visita, ¿estarías dispuesto a dejarnos tus comentarios? Sólo te llevará un minuto.",
+	"b1" : "Sí",
+	"al3" : "Sí, Esto abrirá una nueva ventana.",
+	"b2" : "No, gracias",
+	"al1" : "Diálogo de comentarios",
+	"al2" : "Cierra el diálogo de comentarios",
+	},
+
+	"pt_br" : {
+	"l1" : "Nós valorizamos a sua opinião!",
+	"l2" : "Após sua visita, você estaria disposto a fornecer um rápido feedback? Vai levar apenas um minuto.",
+	"b1" : "Sim",
+	"al3" : "Sim, Uma nova janela será aberta",
+	"b2" : "Não, obrigado.",
+	"al1" : "Caixa de diálogo Feedback",
+	"al2" : "Fechar janela",
+	},
+   
+	"tw" : {
+	"l1" : "我們重視您的意見！",
+	"l2" : "瀏覽網站之後，您可以提供一些簡短意見嗎？過程只需一分鐘。",
+	"b1" : "是",
+	"al3" : "是, 系統將會開啟新視窗。",
+	"b2" : "不用了，謝謝",
+	"al1" : "反饋對話框",
+	"al2" : "結束對話",
+	},
+   
+}
+
+	if(lstrlc == 'fr' && lcclc == 'ca')
+	{
+		return txts['fr_ca'];
+	}
+	else if(lstrlc == 'es')
+    {
+        if(lcclc == 'es' )
+        {
+          return txts['es'];
+        }
+        else
+        {
+          return txts['es_mx'];
+        }
+	}
+	else if (lstrlc == 'pt' && lcclc == 'br')
+	{
+		return txts['pt_br'];
+	}
+	else if(lstrlc == 'en' && ( lcclc == 'au' || lcclc == 'nz') )
+	{
+		return txts['en_nz'];
+	}
+	else
+	{
+		return txts[lstrlc];
+	}
+}
+};

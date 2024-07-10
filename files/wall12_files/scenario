@@ -1,0 +1,26 @@
+window.DigitalFeedback['https://digitalfeedback.us.confirmit.com/api/digitalfeedback/loader/prod/scenario?programKey=Eh6Au0&scenarioId=1352&programVersion=233'] = function (api) {
+window.ConfirmitExitSurvey = function (pid,dataObject,configObject,showLog,test,doPopUnder) 
+{
+  
+  var loc = "" + document.location.href;
+  if( loc.indexOf("cart.nec") != -1 )
+  {
+    console.log('cart page.  exiting');
+    return;
+  }
+  
+  if( isieedge() > 0 )
+  {
+  ConfirmitWindowExitSurvey(pid,dataObject,configObject,showLog,test)
+  }
+  else if( doPopUnder )
+  {
+  ConfirmitTabExitSurvey(pid,dataObject,configObject,showLog,test)
+  }
+  else
+  {
+  ConfirmitWindowExitSurvey(pid,dataObject,configObject,showLog,test)
+  }
+  
+}
+};

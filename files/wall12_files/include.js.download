@@ -1,0 +1,262 @@
+var _inside=_inside||[];var _insideLoaded=_insideLoaded||false;var _insideJQ=_insideJQ||null;var _insideConnectImmediately=true;var _insideChatLoaded=_insideChatLoaded||false;var _insideChatRequested=false;_inside.push({"action":"bind","name":"chatavailable","callback":function(available){_insideChatLoaded=true;if(available){if(_insideChatRequested)
+insideFrontInterface.openChatPane();}
+else{}
+_insideChatRequested=false;}});var openChatButtonClick=function(){if(_insideChatLoaded)
+insideFrontInterface.openChatPane();else
+_insideChatRequested=true;return false;};(function(){if(_insideLoaded)
+return;_insideLoaded=true;var accountKey="IN-1000858";var trackerURL="asia-track.inside-graph.com";var subsiteId=null;var insideOrderTotal=insideOrderTotal||0;var _insideMaxLoop=25;var _insideCurLoop=0;var _insideFirstLoad=false;var _insideCart=null;function deferWait(callback,test){if(test()){callback();return;}
+var _interval=10;var _spin=function(){if(test()){callback();}
+else{_interval=_interval>=1000?1000:_interval*2;setTimeout(_spin,_interval);}};setTimeout(_spin,_interval);}
+function processInside(tracker){var searchUrl="/search";var searchQueryString=null;var productCategoryUrl=null;var productCategoryQueryString=".dlp_Component_id .product_card";var productUrl=null
+var productQueryString=null;var checkoutUrl="/cart|/checkout|checkout.lenovo";var checkoutQueryString=null;var orderConfirmedUrl="thankyou.html";var orderConfirmedQueryString=null;function log(){if(typeof(console)!="undefined"&&typeof(console.log)!="undefined"){}}
+function validateEmail(tempmail){try{if(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(tempmail)){return(true);}}catch(tempex){}
+return(false);}
+function keepWait(callback,test){if(test()){callback();if(_insideCurLoop>=_insideMaxLoop){return;}}
+var _interval=1000;var _spin=function(){if(test()){_insideCurLoop=_insideCurLoop+1;callback();if(_insideCurLoop>=_insideMaxLoop){return;}}
+setTimeout(_spin,_interval);};setTimeout(_spin,_interval);}
+deferWait(function(){if(typeof(cart)!="undefined"&&cart!=null&&typeof(cart.allProducts)!="undefined"&&cart.allProducts!=null&&cart.allProducts.length>0)
+_insideCart=cart;else if(typeof(lmd)!="undefined"&&lmd!=null&&typeof(lmd.cart)!="undefined"&&lmd.cart!=null&&typeof(lmd.cart.allProducts)!="undefined"&&lmd.cart.allProducts!=null&&lmd.cart.allProducts.length>0)
+_insideCart=lmd.cart;},function(){try{if(typeof(cart)!="undefined"&&cart!=null&&typeof(cart.allProducts)!="undefined"&&cart.allProducts!=null&&cart.allProducts.length>0)
+return true;else if(typeof(lmd)!="undefined"&&lmd!=null&&typeof(lmd.cart)!="undefined"&&lmd.cart!=null&&typeof(lmd.cart.allProducts)!="undefined"&&lmd.cart.allProducts!=null&&lmd.cart.allProducts.length>0)
+return true;}catch(tempex){}
+return document.readyState!='loading'&&document.readyState!='interactive';});var indexOf=[].indexOf||function(prop){for(var i=0;i<this.length;i++){if(this[i]===prop)
+return i;}
+return-1;};function myTrim(text){try{if(typeof(text)!="undefined"&&text!=null)
+return typeof(text.trim)==="function"?text.trim():text.replace(/^\s+|\s+$/gm,'');}catch(trimex){}
+return text;}
+function titleCase(str){try{str=str.toLowerCase().split(' ');for(var i=0;i<str.length;i++){str[i]=str[i].charAt(0).toUpperCase()+str[i].slice(1);}
+return str.join(' ');}
+catch(tempex){}
+return str;}
+function isNumber(o){return!isNaN(o-0)&&o!==null&&o!==""&&o!==false;}
+function isNumeric(n){try{return!isNaN(parseFloat(n))&&isFinite(n);}
+catch(tempex){}
+return false;}
+function setCookie(cname,cvalue,exdays){var hostName=window.location.hostname;var siteNameFragments=hostName.split(".");var siteName=siteNameFragments[1];var domain=siteNameFragments.slice(1,siteNameFragments.length).join(".");var d=new Date();d.setTime(d.getTime()+(exdays*24*60*60*1000));var expires="expires="+d.toGMTString();document.cookie=cname+"="+cvalue+"; "+expires+";path=/"+";domain=."+domain;}
+function getCookie(cname){var name=cname+"=";var ca=document.cookie.split(';');for(var i=0;i<ca.length;i++){var c=myTrim(ca[i]);if(c.indexOf(name)==0)
+return c.substring(name.length,c.length);}
+return null;}
+function deleteCookie(cname){document.cookie=cname+"="+0+"; "+"expires=01 Jan 1970 00:00:00 GMT"+";path=/";}
+function roundToTwo(num){if(Math!="undefined"&&Math.round!="undefined")
+return+(Math.round(num+"e+2")+"e-2");else
+return num;}
+function getSearchParameters(){var prmstr=window.location.search.substr(1);return prmstr!=null&&prmstr!=""?transformToAssocArray(prmstr):[];}
+function transformToAssocArray(prmstr){var params=[];var prmarr=prmstr.split("&");for(var i=0;i<prmarr.length;i++){params[i]=prmarr[i];}
+return params;}
+function randomIntFromInterval(min,max){try{return Math.floor(Math.random()*(max-min+1)+min);}
+catch(tempex){}
+return min;}
+function getDecimalSign(number){try{var tempnum=myTrim(number);if(number.length>3){return number.charAt(number.length-3);}}
+catch(signex){}
+return ".";}
+function getViewData(){try{var data={};data.action="trackView";data.type="article";data.url=window.location.href;data.name="Unknown Page: "+window.location.href;var tempurl=window.location.href.toLowerCase();var temppath=window.location.pathname;var temp_loc=temppath.split("/");var temp_loc2=[];var page="";var add_tags=[];var params=getSearchParameters();var searchterm="Search";if(params!=null&&params.length>0){for(var i=0;i<params.length;i++){if(params[i].indexOf("text=")==0){searchterm=params[i].split("text=")[1];}}}
+for(var i=1;i<temp_loc.length;i++){if(temp_loc[i]!=null&&temp_loc[i].length>0){page=temp_loc[i];temp_loc2.push(page);}}
+var curpage=page.split("?")[0];data.name=curpage;var temppagetype="other";var tempjspname="other"
+var temputagsubpagetype="other";try{var tempbodyid=_insideJQ("body").attr("id");if(typeof(tempbodyid)!="undefined"&&tempbodyid!=null&&tempbodyid.length>0){temppagetype=tempbodyid.toLowerCase();}
+else{tempbodyid=_insideJQ("body").attr("data-name");if(typeof(tempbodyid)!="undefined"&&tempbodyid!=null&&tempbodyid.length>0){temppagetype=tempbodyid.toLowerCase();}}
+var tempbodyjsp=_insideJQ("body").attr("jspPageName");if(typeof(tempbodyjsp)!="undefined"&&tempbodyjsp!=null&&tempbodyjsp.length>0){tempjspname=tempbodyjsp.toLowerCase();}
+if(typeof(lmd.taxonomytype)!="undefined"&&lmd.taxonomytype!=null&&lmd.taxonomytype&&lmd.taxonomytype.length>0){temputagsubpagetype=lmd.taxonomytype.toLowerCase();}}catch(tempex){}
+var temphome=_insideJQ("body#homepage");var temphomelength=3;if(data.url.toLowerCase().indexOf("/smbpro")!=-1||data.url.toLowerCase().indexOf("/lenovopro")!=-1)
+temphomelength=4;if((temppath=="/"||curpage=="index.html")&&temp_loc2.length<temphomelength){data.type="homepage";}
+else if((temppagetype=="homepage"||tempjspname=="rebrandhomepage"||tempjspname=="smbhomepage")&&temp_loc2.length<temphomelength){data.type="homepage";}
+else if(temppagetype=="search"){data.type="search";}
+else if(temppagetype.indexOf("category")!=-1||temppagetype.indexOf("productlisting")!=-1||tempjspname.indexOf("category")!=-1||temputagsubpagetype.indexOf("DLP Page".toLowerCase())!=-1){data.type="productcategory";}
+else if(temppagetype.indexOf("product")!=-1||temputagsubpagetype.indexOf("product")!=-1||temputagsubpagetype.indexOf("pdp")!=-1){data.type="product";}
+else if(temphome.length>0&&temp_loc2.length<temphomelength){data.type="homepage";}
+else if(tempurl.indexOf("/registration")!=-1||tempurl.indexOf("/login")!=-1||tempurl.indexOf("/register")!=-1){data.type="login";}
+else if(temputagsubpagetype=="homepage"){data.type="homepage";}
+if(productCategoryUrl!=null){if(tempurl.search(productCategoryUrl.toLowerCase())>-1){data.type="productcategory";}}
+if(productCategoryQueryString!=null){var tempelem=_insideJQ(productCategoryQueryString);if(tempelem!=null&&tempelem.length>0){data.type="productcategory";}}
+try{if(typeof(lmd)!='undefined'&&lmd!=null&&lmd&&lmd.productID&&lmd.producttype&&lmd.skutype){data.type="product";if(typeof(data.data)=="undefined")
+data.data={};data.data.skutype=lmd.skutype;data.data.producttype=lmd.producttype;}}catch(productpagetypeex){}
+if(searchUrl!=null){if(tempurl.search(searchUrl.toLowerCase())>-1){data.type="search";}}
+if(searchQueryString!=null){var tempelem=_insideJQ(searchQueryString);if(tempelem!=null&&tempelem.length>0){data.type="search";}}
+if(productUrl!=null){if(tempurl.search(productUrl.toLowerCase())>-1){data.type="product";}}
+if(productQueryString!=null){var tempelem=_insideJQ(productQueryString);if(tempelem!=null&&tempelem.length>0){data.type="product";}}
+if(checkoutUrl!=null){if(tempurl.search(checkoutUrl.toLowerCase())>-1){data.type="checkout";}}
+if(checkoutQueryString!=null){var tempelem=_insideJQ(checkoutQueryString);if(tempelem!=null&&tempelem.length>0){data.type="checkout";}}
+if(orderConfirmedUrl!=null){if(tempurl.search(orderConfirmedUrl.toLowerCase())>-1){data.type="orderconfirmed";}}
+if(orderConfirmedQueryString!=null){var tempelem=_insideJQ(orderConfirmedQueryString);if(tempelem!=null&&tempelem.length>0){data.type="orderconfirmed";}}
+try{if(typeof(dataLayer)!="undefined"&&dataLayer!=null&&dataLayer.length>0){for(var i=0;i<dataLayer.length;i++){if(typeof(dataLayer[i])!="undefined"&&dataLayer[i]!=null&&typeof(dataLayer[i].ecommerce)!="undefined"&&dataLayer[i].ecommerce!=null&&typeof(dataLayer[i].ecommerce.purchase)!="undefined"&&dataLayer[i].ecommerce.purchase!=null&&typeof(dataLayer[i].ecommerce.purchase.actionField)!="undefined"&&dataLayer[i].ecommerce.purchase.actionField!=null&&typeof(dataLayer[i].ecommerce.purchase.actionField.id)!="undefined"&&dataLayer[i].ecommerce.purchase.actionField.id!=null){data.type="orderconfirmed";}}}
+if(typeof(lmd)!="undefined"&&lmd!=null&&typeof(lmd.purchase)!="undefined"&&lmd.purchase!=null&&typeof(lmd.purchase.orderID)!="undefined"&&lmd.purchase.orderID!=null&&typeof(lmd.purchase.totalPrice)!="undefined"&&lmd.purchase.totalPrice!=null){data.type="orderconfirmed";}}catch(tempex){}
+switch(data.type){case "homepage":data.name="Home";break;case "search":data.name="Search Result Page";if(searchterm!=null&&searchterm.length>0){searchterm=searchterm.replace(/\+/g,' ');data.name=decodeURIComponent(searchterm);var tempsearch=_insideJQ("#inputSearchText").val();if(typeof(tempsearch)!="undefined"&&tempsearch!=null&&tempsearch.length>0){data.name=myTrim(tempsearch);}}
+break;case "productcategory":var tempcat=getCategory();if(tempcat!=null&&tempcat.length>0){if(tempcat.length>149)
+tempcat=tempcat.substring(0,149);data.category=tempcat;}
+var tempPageName=getPageName();if(tempPageName!=null&&tempPageName.length>0)
+data.name=tempPageName;break;case "product":var tempPageName=getPageName();if(tempPageName!=null&&tempPageName.length>0)
+data.name=tempPageName;tempPageName=getProductName();if(tempPageName!=null&&tempPageName.length>0)
+data.name=tempPageName;var tempcat=getCategory();if(tempcat!=null&&tempcat.length>0){if(tempcat.length>149)
+tempcat=tempcat.substring(0,149);data.category=tempcat;}
+var tempval=getProductImage();if(tempval!=null&&tempval.length>0)
+data.img=tempval;else{data.type="article";add_tags.push("productimagenotfound");}
+var tempsku=getProductSku();if(tempsku!=null&&tempsku.length>0){data.sku=tempsku;data.name=data.name+" - "+tempsku;}
+var tempprice=getProductPrice();if(tempprice!=null&&tempprice>0)
+data.price=tempprice;break;case "orderconfirmed":data.name="Order Confirmed";break;default:var tempPageName=getPageName();if(tempPageName!=null&&tempPageName.length>0)
+data.name=tempPageName;if(temppagetype=="productconfiguratorpage"||temppagetype=="productbuilderpage"){data.type="article";var tempitemname=myTrim(_insideJQ(".qa-configurator-productName").text());if(tempitemname!=null&&tempitemname.length>0){data.name=tempitemname+" - Configuration";}}}
+if(add_tags.length>0){data.tags=add_tags.join(",");}
+try{var tempnode=getNode();if(tempnode!=null&&data.type!="homepage"&&data.type!="search"&&data.type!="checkout"&&data.type!="orderconfirmed"){data.node=tempnode;}}catch(tempex){}
+return data;}
+catch(ex){if(typeof(console)!="undefined"&&typeof(console.log)!="undefined")
+log("getViewData error: ",ex);return null;}}
+function getNode(){try{var tempurl=window.location.href.toLowerCase();if(tempurl.indexOf("data-center")!=-1){return 4;}
+else if(tempurl.search("/about|/contact")>0){return 3;}
+else if(tempurl.indexOf("phones")!=-1){return 6;}
+else if(tempurl.indexOf("devices")!=-1){return 7;}
+else if(tempurl.indexOf("services")!=-1){return 1;}
+else if(tempurl.search("laptops|desktops|workstations|tablets|accessories|software")>0){var temprandomint=randomIntFromInterval(1,10);if(temprandomint<6)
+return 5;else
+return 9;}}catch(tempex){}
+return 0;}
+function getNodeOld(){try{var tempurl=window.location.href.toLowerCase();if(tempurl.indexOf("/smbpro")!=-1||tempurl.indexOf("/lenovopro")!=-1){return 0;}
+var tempstringchecks=["/accessories-and-monitors","accessories-and-monitors/monitors/c/monitors","accessories-and-monitors/docking/c/docking","accessories-and-monitors/chargers-and-batteries/c/chargers-and-batteries","accessories-and-monitors/cables-and-adapters/c/cables-and-adapters","accessories-and-monitors/monitors/c/monitors","accessories-and-monitors/audio/c/audio","accessories-and-monitors/docking/c/docking","accessories-and-monitors/memory-and-storage/c/memory-and-storage","accessories-and-monitors/cases-and-bags/c/cases-and-bags","accessories-and-monitors/pens-and-supplies/c/pens-and-supplies","accessories-and-monitors/keyboards-and-mice/c/keyboards-and-mice","accessories-and-monitors/privacy-and-protection/c/privacy-and-protection"];for(var i=0;i<tempstringchecks.length;i++){if(tempurl.indexOf(tempstringchecks[i].toLowerCase())!=-1){return 1;}}
+tempstringchecks=["/think-workstations","laptops/thinkpad/thinkpad-p-series/c/thinkpad-p-series","workstations/thinkstation-p-series/c/thinkstation-p-series","workstations/thinkstation-p-series/c/thinkstation-p-series","workstations/thinkstation-p-series/ThinkStation-P330-Tiny","workstations/thinkstation-p-series/ThinkStation-P330-SFF","workstations/thinkstation-p-series/ThinkStation-P330-Tower","workstations/thinkstation-p-series/ThinkStation-P520c","workstations/thinkstation-p-series/ThinkStation-P520","workstations/thinkstation-p-series/ThinkStation-P720","workstations/thinkstation-p-series/ThinkStation-P920"];for(var i=0;i<tempstringchecks.length;i++){if(tempurl.indexOf(tempstringchecks[i].toLowerCase())!=-1){return 2;}}
+tempstringchecks=["laptops/thinkpad/thinkpad-t-series","laptops/thinkpad/thinkpad-t-series/ThinkPad-T490s","laptops/thinkpad/thinkpad-t-series/ThinkPad-T590","laptops/thinkpad/thinkpad-t-series/T490","laptops/thinkpad/thinkpad-t-series/ThinkPad-T580","laptops/thinkpad/thinkpad-t-series/ThinkPad-T480","laptops/thinkpad/thinkpad-t-series/ThinkPad-T480s","laptops/thinkpad/thinkpad-l-series","laptops/thinkpad/thinkpad-l-series/ThinkPad-L380-Yoga","laptops/thinkpad/thinkpad-l-series/ThinkPad-L380","laptops/thinkpad/thinkpad-l-series/ThinkPad-L390","laptops/thinkpad/thinkpad-l-series/ThinkPad-L480","laptops/thinkpad/thinkpad-l-series/ThinkPad-L390-Yoga","laptops/thinkpad/thinkpad-l-series/ThinkPad-L580","laptops/thinkpad/thinkpad-x-series/c","laptops/thinkpad/thinkpad-e-series/c","laptops/thinkpad/thinkpad-e-series/ThinkPad-E485","laptops/thinkpad/thinkpad-e-series/ThinkPad-E585","laptops/thinkpad/thinkpad-e-series/ThinkPad-E480","laptops/thinkpad/thinkpad-e-series/ThinkPad-E580","laptops/thinkpad/thinkpad-e-series/E490s","laptops/thinkpad/thinkpad-e-series/E490","laptops/thinkpad/thinkpad-e-series/E590","laptops/thinkpad/thinkpad-a-series/c","laptops/thinkpad/thinkpad-a-series/ThinkPad-A485","laptops/thinkpad/thinkpad-a-series/A285","laptops/lenovo-laptop/lenovo-v-series","laptops/lenovo-laptop/lenovo-v-series/Lenovo-V145-15AST","laptops/lenovo-laptop/lenovo-v-series/Lenovo-V130-15IKB","laptops/lenovo-laptop/lenovo-v-series/Lenovo-V130-14","laptops/lenovo-laptop/lenovo-v-series/V330-14","laptops/lenovo-laptop/lenovo-v-series/V330-15","laptops/thinkpad/c/thinkpad","laptops/lenovo-laptop/c/lenovo-laptop"];for(var i=0;i<tempstringchecks.length;i++){if(tempurl.indexOf(tempstringchecks[i].toLowerCase())!=-1){return 5;}}
+tempstringchecks=["tablets/c/tablets/","laptops/ideapad/ideapad-d-series/Ideapad-D330","tablets/lenovo-tablets/miix-series/c","laptops/ideapad/ideapad-miix-series/Miix-520","laptops/ideapad/ideapad-miix-series/c","laptops/ideapad/ideapad-miix-series/Miix-520","tablets/lenovo-tablets/yoga-tablets-series/Yoga-Book-with-Windows","tablets/lenovo-tablets/yoga-tablets-series/c","tablets/lenovo-tablets/tab-series/c","tablets/thinkpad-tablets/thinkpad-x1-tablet/c","tablets/thinkpad-tablets/c/thinkpad-tablets"];for(var i=0;i<tempstringchecks.length;i++){if(tempurl.indexOf(tempstringchecks[i].toLowerCase())!=-1){return 6;}}
+tempstringchecks=["/gaming","Legion-Y540-15","L340-15IRH-Gaming","L340-17IRH-Gaming","laptops/ideapad/lenovo-legion-y-series/Lenovo-Legion-Y740-15ICHg","laptops/ideapad/lenovo-legion-y-series/Lenovo-Legion-Y740-17ICHg","laptops/ideapad/lenovo-legion-y-series/Lenovo-Legion-Y530-15ICH","laptops/ideapad/lenovo-legion-y-series/Lenovo-Legion-Y730-15ICH","laptops/ideapad/lenovo-legion-y-series/Lenovo-Legion-Y730-17ICH","desktops-and-all-in-ones/ideacentre/lenovo-legion-y-series-desktops/Legion-Y520-Desktop","desktops-and-all-in-ones/legion-desktops/legion-t-series-towers/Lenovo-Legion-T530-Intel","desktops-and-all-in-ones/ideacentre/y700-/Y700","desktops-and-all-in-ones/legion-desktops/lenovo-legion-c-series-cubes/Lenovo-Legion-C530-19ICB","desktops-and-all-in-ones/legion-desktops/legion-y-series-desktops/Y720-Cube","desktops-and-all-in-ones/legion-desktops/legion-y-series-desktops/Legion-Y720-Tower-AMD","desktops-and-all-in-ones/legion-desktops/legion-y-series-desktops/Legion-Y720-Tower-Intel","desktops-and-all-in-ones/legion-desktops/legion-y-series-desktops/Y720-Cube","desktops-and-all-in-ones/legion-desktops/legion-t-series-towers/Lenovo-Legion-T730-28ICO","desktops-and-all-in-ones/legion-desktops/legion-c-series-cubes/Lenovo-Legion-C730-Cube","desktops-and-all-in-ones/legion-desktops/legion-t-series-towers/Lenovo-Legion-T530-AMD"];for(var i=0;i<tempstringchecks.length;i++){if(tempurl.indexOf(tempstringchecks[i].toLowerCase())!=-1){return 8;}}
+tempstringchecks=["/desktops","desktops-and-all-in-ones/thinkcentre/m-series-tower/c","desktops-and-all-in-ones/thinkcentre/m-series-tower/M715-Tower","desktops-and-all-in-ones/thinkcentre/m-series-tower/ThinkCentre-M920t","desktops-and-all-in-ones/thinkcentre/m-series-tower/ThinkCentre-M720t","desktops-and-all-in-ones/thinkcentre/m-series-sff/c","desktops-and-all-in-ones/thinkcentre/m-series-sff/ThinkCentre-M725s","desktops-and-all-in-ones/thinkcentre/m-series-sff/ThinkCentre-M725s","desktops-and-all-in-ones/thinkcentre/m-series-sff/ThinkCentre-M720-SFF","desktops-and-all-in-ones/thinkcentre/m-series-tiny/c","desktops-and-all-in-ones/thinkcentre/m-series-tiny/ThinkCentre-M720-Tiny","desktops-and-all-in-ones/thinkcentre/m-series-tiny/ThinkCentre-M715q-Tiny","desktops-and-all-in-ones/thinkcentre/m-series-sff/ThinkCentre-M720-SFF","desktops-and-all-in-ones/c/desktops/","desktops-and-all-in-ones/thinkcentre/m-series-aio/c","desktops-and-all-in-ones/thinkcentre/m-series-aio/M920z-AIO","desktops-and-all-in-ones/thinkcentre/m-series-aio/M820z-AIO"];for(var i=0;i<tempstringchecks.length;i++){if(tempurl.indexOf(tempstringchecks[i].toLowerCase())!=-1){return 9;}}
+if(tempurl.indexOf("/sgedu")!=-1||tempurl.indexOf("/student")!=-1){return 10;}
+else if(tempurl.search("/jedichallenges|/devices|/smart-display|/daydreamvr|/smart-tab")>0){return 3;}
+else if(tempurl.search("/services/pc-services|/warranty-upgrades|/warrantyapos")>0){return 7;}
+else if(tempurl.search("ideapad-l340-15iwl|ideapad-l340-15api|ideapad/s-series|ideapad-c-series|ideapad-s-series|/laptops/ideapad/c/ideapad|/laptops/yoga/c/yoga|yoga-300-series|yoga-500-series|yoga-c-series|yoga-s-series|yoga-700-series|ideapad-100-series|ideapad-300-series|ideapad-300s-series|ideapad-500-series|ideapad-500s-series|ideapad-700-series|ideapad-900-series")>0){return 4;}
+else if(tempurl.search("v-series-all-in-ones|lenovo-v-aio-series|ideacentre|lenovo-serie-v-sff|lenovo-v-series-tower-desktops|yoga-a-series|aio-500-series|v-series-tower|v-series-sff")>0){return 9;}}catch(tempex){}
+return 11;}
+function getPageName(){var content=document.getElementsByTagName("title");if(typeof(content)!="undefined"&&content!=null&&content.length>0){var result=content[0].textContent||content[0].innerText;if(typeof(result)!="undefined"&&result!=null&&result.length>0){return myTrim(result);}}
+return null;}
+function getProductName(){try{var ldjsons=_insideJQ('script[type="application/ld+json"]');for(var i=0;i<ldjsons.length;i++){var tempdata=JSON.parse(_insideJQ(ldjsons[i]).last().html().replace(/\n/g,""));if(typeof(tempdata)!="undefined"&&tempdata!=null&&_insideJQ.isArray(tempdata)){for(var l=0;l<tempdata.length;l++){var tempdetail=tempdata[i];if(typeof(tempdetail)!="undefined"&&tempdetail!=null&&typeof(tempdetail["@type"])!="undefined"&&tempdetail["@type"]!=null&&tempdetail["@type"]=="Product"&&typeof(tempdetail.name)!="undefined"&&tempdetail.name!=null&&tempdetail.name.length>0){if(_insideJQ.isArray(tempdetail.name)){var tempprodval=tempdetail.name[0];return tempprodval;}
+else{var tempprodval=tempdetail.name;return tempprodval;}}}}
+else if(typeof(tempdata)!="undefined"&&tempdata!=null&&typeof(tempdata["@type"])!="undefined"&&tempdata["@type"]!=null&&tempdata["@type"]=="Product"&&typeof(tempdata.name)!="undefined"&&tempdata.name!=null&&tempdata.name.length>0){if(_insideJQ.isArray(tempdata.name)){var tempprodval=tempdata.name[0];return tempprodval;}
+else{var tempprodval=tempdata.name;return tempprodval;}}}}
+catch(tempex){}
+try{if(typeof(productInfo)!="undefined"&&productInfo!=null&&typeof(productInfo.name)!="undefined"&&productInfo.name!=null&&productInfo.name.length>0)
+return productInfo.name;}catch(tempex){}
+return null;}
+function getProductImage(){try{var ldjsons=_insideJQ('script[type="application/ld+json"]');for(var i=0;i<ldjsons.length;i++){var tempdata=JSON.parse(_insideJQ(ldjsons[i]).last().html().replace(/\n/g,""));if(typeof(tempdata)!="undefined"&&tempdata!=null&&_insideJQ.isArray(tempdata)){for(var l=0;l<tempdata.length;l++){var tempdetail=tempdata[i];if(typeof(tempdetail)!="undefined"&&tempdetail!=null&&typeof(tempdetail["@type"])!="undefined"&&tempdetail["@type"]!=null&&tempdetail["@type"]=="Product"&&typeof(tempdetail.image)!="undefined"&&tempdetail.image!=null&&tempdetail.image.length>0){if(_insideJQ.isArray(tempdetail.image)){var tempprodimg=tempdetail.image[0];if(tempprodimg.indexOf("https:")==-1){tempprodimg="https:"+tempprodimg;}
+return tempprodimg;}
+else{var tempprodimg=tempdetail.image;if(tempprodimg.indexOf("https:")==-1){tempprodimg="https:"+tempprodimg;}
+return tempprodimg;}}}}
+else if(typeof(tempdata)!="undefined"&&tempdata!=null&&typeof(tempdata["@type"])!="undefined"&&tempdata["@type"]!=null&&tempdata["@type"]=="Product"&&typeof(tempdata.image)!="undefined"&&tempdata.image!=null&&tempdata.image.length>0){if(_insideJQ.isArray(tempdata.image)){var tempprodimg=tempdata.image[0];if(tempprodimg.indexOf("https:")==-1){tempprodimg="https:"+tempprodimg;}
+return tempprodimg;}
+else{var tempprodimg=tempdata.image;if(tempprodimg.indexOf("https:")==-1){tempprodimg="https:"+tempprodimg;}
+return tempprodimg;}}}}
+catch(tempex){}
+try{if(_insideJQ("img.rollovercartItemImg").length>0)
+return _insideJQ("img.rollovercartItemImg").get(0).currentSrc;if(_insideJQ(".product-img .images-list img").length>0)
+return _insideJQ(".product-img .images-list img").get(0).currentSrc;if(_insideJQ(".banner_content_pics .image-pic img.srcImg").length>0)
+return _insideJQ(".banner_content_pics .image-pic img.srcImg").get(0).currentSrc;}
+catch(tempex){}
+return null;}
+function getProductPrice(){try{var ldjsons=_insideJQ('script[type="application/ld+json"]');for(var i=0;i<ldjsons.length;i++){var tempdata=JSON.parse(_insideJQ(ldjsons[i]).last().html().replace(/\n/g,""));if(typeof(tempdata)!="undefined"&&tempdata!=null&&_insideJQ.isArray(tempdata)){for(var l=0;l<tempdata.length;l++){var tempdetail=tempdata[i];if(typeof(tempdetail)!="undefined"&&tempdetail!=null&&typeof(tempdetail["@type"])!="undefined"&&tempdetail["@type"]!=null&&tempdetail["@type"]=="Product"&&typeof(tempdetail.offers)!="undefined"&&tempdetail.offers!=null&&typeof(tempdetail.offers.price)!="undefined"&&tempdetail.offers.price!=null&&tempdetail.offers.price){if(_insideJQ.isArray(tempdetail.offers.price)){var tempprodval=tempdetail.offers.price[0];return tempprodval;}
+else{var tempprodval=tempdetail.offers.price;return tempprodval;}}}}
+else if(typeof(tempdata)!="undefined"&&tempdata!=null&&typeof(tempdata["@type"])!="undefined"&&tempdata["@type"]!=null&&tempdata["@type"]=="Product"&&typeof(tempdata.offers)!="undefined"&&tempdata.offers!=null&&typeof(tempdata.offers.price)!="undefined"&&tempdata.offers.price!=null&&tempdata.offers.price){if(_insideJQ.isArray(tempdata.offers.price)){var tempprodval=tempdata.offers.price[0];return tempprodval;}
+else{var tempprodval=tempdata.offers.price;return tempprodval;}}}}
+catch(tempex){}
+try{if(typeof(productInfo)!="undefined"&&productInfo!=null&&typeof(productInfo.priceusd)!="undefined"&&productInfo.priceusd!=null)
+return productInfo.priceusd;}catch(tempex){}
+return null;}
+function getProductSku(){try{if(typeof(lmd)!="undefined"&&lmd.productID)
+return lmd.productID;}
+catch(tempex){}
+try{var tempdata=JSON.parse(_insideJQ('script[type="application/ld+json"]').last().html().replace(/\n/g,""));if(typeof(tempdata)!="undefined"&&tempdata!=null&&typeof(tempdata.mpn)!="undefined"&&tempdata.mpn!=null&&tempdata.mpn.length>0)
+return tempdata.mpn;}
+catch(tempex){}
+try{if(typeof(lmd)!="undefined"&&lmd!=null&&lmd.productcode)
+return lmd.productcode}catch(tempex){}
+return null;}
+function getCategory(){try{var breadcrumbs=_insideJQ(".breadcrumbs");if(breadcrumbs!=null&&breadcrumbs.length>0){breadcrumbs=breadcrumbs[0].getElementsByTagName("li");if(breadcrumbs!=null&&breadcrumbs.length>0){var path="";for(var i=1;i<breadcrumbs.length;i++){var temp=breadcrumbs[i].innerText||breadcrumbs[i].textContent;var tempelem=breadcrumbs[i].getElementsByTagName("a");if(tempelem!=null&&tempelem.length>0){temp=tempelem[0].innerText||tempelem[0].textContent;}
+temp=myTrim(temp);if(temp!="/")
+path+=(path!=""?" / ":"")+temp;}
+if(path!="")
+return path;}}}
+catch(tempex){}
+return null;}
+function getOrderData(){try{var data=[];var totalprice=0;var orderId="auto";if(typeof(Cart)!="undefined"&&Cart!=null&&typeof(Cart.items)!="undefined"&&Cart.items!=null&&Cart.items.length>0){for(var i=0;i<Cart.items.length;i++){var item_name=Cart.items[i].productName;var price=Cart.items[i].priceUnit;price=parseFloat(price);var qty=Cart.items[i].qty;qty=parseFloat(qty);var sku=Cart.items[i].productCode;var insideitemimg=Cart.items[i].productImgUrl;try{if(typeof(utag_data)!="undefined"&&utag_data!=null&&typeof(utag_data._cprice)!="undefined"&&utag_data._cprice!=null&&utag_data._cprice.length>=i){price=parseFloat(utag_data._cprice[i].replace(/[^0-9\.\-\+]/g,""));}}catch(utagpricex){}
+totalprice=totalprice+(price*qty);data.push({"action":"addItem","orderId":orderId,"name":myTrim(item_name),"price":price,"sku":myTrim(sku),"img":insideitemimg,"qty":qty});}
+if(data.length>0){try{if(Cart.summaryTotal&&Cart.summaryTotal.totalAmounts)
+totalprice=Cart.summaryTotal.totalAmounts;}
+catch(totalex){}
+var orderdata={"action":"trackOrder","orderId":orderId,"orderTotal":totalprice};try{if(typeof(lmd)!="undefined"&&lmd!=null&&typeof(lmd.currencycode)!="undefined"&&lmd.currencycode!=null&&lmd.currencycode.length>0){orderdata.data={};orderdata.data.currency=lmd.currencycode.toUpperCase();}}catch(currencyex){}
+data.push(orderdata);sessionStorage.setItem("insideordertotal",totalprice);}
+return data;}}
+catch(ex){log("getOrderDataCart error. ",ex);}
+try{var data=[];var totalprice=0;var orderId="auto";var tempcurrate=null;if(typeof(_insideCart)!="undefined"&&_insideCart!=null&&typeof(_insideCart.allProducts)!="undefined"&&_insideCart.allProducts!=null&&_insideCart.allProducts.length>0){for(var i=0;i<_insideCart.allProducts.length;i++){var tempitem={};tempitem.action="addItem";tempitem.orderId=orderId;var detail=_insideCart.allProducts[i];tempitem.name=detail.productName;if(tempitem.name.indexOf("<br")!=-1){tempitem.name=myTrim(tempitem.name.split("<br")[0]);}
+tempitem.sku=detail.productcode;tempitem.qty=parseFloat(detail.quantity);tempitem.price=parseFloat(detail.price)/tempitem.qty;if(tempcurrate!=null){if(tempcurrate<1){tempitem.price=tempitem.price*tempcurrate*tempcurrate;}
+else{tempitem.price=tempitem.price/tempcurrate;}}
+try{if(typeof(utag_data)!="undefined"&&utag_data!=null&&typeof(utag_data._cprice)!="undefined"&&utag_data._cprice!=null&&utag_data._cprice.length>=i){tempitem.price=parseFloat(utag_data._cprice[i].replace(/[^0-9\.\-\+]/g,""));}}catch(utagpricex){}
+var tempskus=_insideJQ(".cart-item-partNumber");if(tempskus.length>0){for(var l=0;l<tempskus.length;l++){var tempsku=_insideJQ(tempskus[l]).text();if(tempsku.toLowerCase().indexOf(tempitem.sku.toLowerCase())!=-1){var tempparent=_insideJQ(tempskus[l]).closest(".cart-item");var tempimg=tempparent.find(".cart_item_imgDiv img");if(tempimg.length>0){tempitem.img=tempimg.get(0).src;break;}}}}
+data.push(tempitem);}}
+else if(typeof(lmd)!="undefined"&&lmd!=null&&typeof(lmd.checkout)!="undefined"&&lmd.checkout!=null){try{if(typeof(lmd.checkout)!="undefined"&&lmd.checkout!=null&&typeof(lmd.checkout.basePriceUSD)!="undefined"&&lmd.checkout.basePriceUSD!=null){}}catch(curex){}
+for(var i=0;i<lmd.checkout.allProducts.length;i++){var tempitem={};tempitem.action="addItem";tempitem.orderId=orderId;var detail=lmd.checkout.allProducts[i];tempitem.name=detail.productName;if(tempitem.name.indexOf("<br")!=-1){tempitem.name=myTrim(tempitem.name.split("<br")[0]);}
+tempitem.sku=detail.productcode;tempitem.qty=parseFloat(detail.quantity);tempitem.price=parseFloat(detail.price.replace(/[^0-9\.\-\+]/g,""));data.push(tempitem);}}
+if(data.length>0){try{if(typeof(_insideCart)!="undefined"&&_insideCart!=null&&typeof(_insideCart.totalPriceUSD)!="undefined"&&_insideCart.totalPriceUSD!=null){totalprice=_insideCart.totalPrice;}else if(typeof(lmd)!="undefined"&&lmd!=null&&typeof(lmd.checkout)!="undefined"&&lmd.checkout!=null&&typeof(lmd.checkout.totalPrice)!="undefined"&&lmd.checkout.totalPrice!=null){totalprice=lmd.checkout.totalPrice;}}catch(totalex){}
+data.push({"action":"trackOrder","orderId":orderId,"orderTotal":totalprice});sessionStorage.setItem("insideordertotal",totalprice);return data;}}
+catch(ex){log("getOrderData error. ",ex);}
+return null;}
+function orderConfirmProcess(){try{var data=[];var tempcurrency=null;var detail=null;if(typeof(lmd)!="undefined"&&lmd!=null&&typeof(lmd.purchase)!="undefined"&&lmd.purchase!=null&&typeof(lmd.purchase.orderID)!="undefined"&&lmd.purchase.orderID!=null&&typeof(lmd.purchase.totalPrice)!="undefined"&&lmd.purchase.totalPrice!=null){detail=lmd.purchase;if(typeof(lmd)!="undefined"&&lmd!=null&&typeof(lmd.currencycode)!="undefined"&&lmd.currencycode!=null&&lmd.currencycode.length>0){tempcurrency=lmd.currencycode.toUpperCase();}}
+if(detail!=null){var totalprice=detail.totalPrice;var orderID=detail.orderID;var temppurchasedata={};if(typeof(detail.shippingPrice)!="undefined"&&detail.shippingPrice!=null){temppurchasedata.shipping=detail.shippingPrice;}
+if(typeof(detail.tax)!="undefined"&&detail.tax!=null){temppurchasedata.tax=detail.tax;}
+if(tempcurrency!=null){temppurchasedata.currency=tempcurrency;}
+if(typeof(orderID)!="undefined"&&orderID!=null&&orderID.length>0&&orderID!="auto"){try{var lastOrderID=sessionStorage.getItem("insidelastorderid");if(lastOrderID==orderID){return null;}}
+catch(orderidex){}
+data.push({"action":"trackOrder","orderId":"auto","newOrderId":orderID,"orderTotal":totalprice,"data":temppurchasedata,"update":true,"complete":true});return data;}}}
+catch(ex){log("orderConfirmProcess error. ",ex);}
+return null;}
+function getVisitorId(){try{if(typeof(lmd)!="undefined"&&lmd!=null&&typeof(lmd.loginName)!="undefined"&&lmd.loginName!=null&&typeof(lmd.loginName)!="undefined"&&lmd.loginName!=null&&validateEmail(lmd.loginName)&&lmd.userType.toLowerCase()=="logged in"){return lmd.loginName;}}
+catch(visitidex){}
+return null;}
+function getVisitorName(){try{}
+catch(visitidex){}
+return null;}
+function getVisitorData(){try{var tempdata={};if(typeof(dl_cc)!="undefined"&&dl_cc!=null&&dl_cc.length>0){tempdata.country=dl_cc;}
+if(typeof(dl_language)!="undefined"&&dl_language!=null&&dl_language.length>0){tempdata.language=dl_language;}
+if(typeof(lmd)!="undefined"&&lmd!=null){if(typeof(lmd.country)!="undefined"&&lmd.country!=null&&lmd.country.length>0){tempdata.country=lmd.country;}
+if(typeof(lmd.language)!="undefined"&&lmd.language!=null&&lmd.language.length>0){tempdata.language=lmd.language;}}
+return tempdata;}
+catch(visitidex){}
+return null;}
+function insertInsideTag(){try{_insideGraph.processQueue();}
+catch(tempex){}}
+function sendToInside(){try{tracker.url=window.location.href;var visitorId=getVisitorId();if(visitorId!=null&&visitorId.length>0){tracker.visitorId=visitorId;}
+var visitorName=getVisitorName();if(visitorName!=null&&visitorName.length>0){tracker.visitorName=visitorName;}
+var visitorData=getVisitorData();if(visitorData!=null){tracker.visitorData=visitorData;}
+var view=getViewData();if(view!=null){if(view.type=="orderconfirmed"){var tempconfirm=orderConfirmProcess();if(tempconfirm!=null&&tempconfirm.length>0){for(var i=0;i<tempconfirm.length;i++){_inside.push(tempconfirm[i]);try{if(tempconfirm[i].action=="trackOrder")
+sessionStorage.setItem("insidelastorderid",tempconfirm[i].newOrderId);}
+catch(tempex){}}
+sessionStorage.removeItem("insideordertotal");}}
+else{var orderData=getOrderData();if(orderData!=null&&orderData.length>0){for(var i=0;i<orderData.length;i++){_inside.push(orderData[i]);if(orderData[i].action=="trackOrder"){view.orderId=orderData[i].orderId;view.orderTotal=orderData[i].orderTotal;insideOrderTotal=orderData[i].orderTotal;}}}
+else if(view.type=="checkout"&&view.url.indexOf("/cart")!=-1){sessionStorage.removeItem("insideordertotal");}
+else{var total_temp=sessionStorage.getItem("insideordertotal");try{total_temp=parseFloat(total_temp);}
+catch(numex){total_temp=0;}
+if(total_temp!=null&&total_temp>0){view.orderId="auto";view.orderTotal=total_temp;}}}
+try{var _insideCurrency=null;if(typeof(lmd)!="undefined"&&lmd!=null){if(lmd.currencycode)
+_insideCurrency=lmd.currencycode.toUpperCase();}
+if(_insideCurrency){if(_inside!=null&&_inside.length>0){for(var i=0;i<_inside.length;i++){if(_inside[i].action=="trackOrder"){if(typeof(_inside[i].data)=="undefined"||_inside[i].data==null){_inside[i].data={};}
+if(typeof(_inside[i].data.currency)=="undefined"||_inside[i].data.currency==null){_inside[i].data.currency=_insideCurrency;}}}}
+if(typeof(view.data)=="undefined"||view.data==null){view.data={};}
+view.data.currency=_insideCurrency;if(typeof(tracker.visitorData)=="undefined"||tracker.visitorData==null){tracker.visitorData={};}
+tracker.visitorData.currency=_insideCurrency;}}catch(currencyex){}
+_inside.push(view);log("Inside Debug: ",_inside);}}
+catch(sendex){_inside=[];_inside.push({"action":"trackView","type":"other","name":"Check: "+window.location.href});log(sendex);}
+insertInsideTag();if(!_insideFirstLoad)
+_insideFirstLoad=true;}
+var tempview=getViewData();if(tempview!=null&&typeof(tempview.type)!="undefined"&&tempview.type!=null&&tempview.type=="orderconfirmed"){deferWait(sendToInside,function(){var tempconfirm=orderConfirmProcess();if(tempconfirm!=null&&tempconfirm.length>0){return true;}
+return document.readyState!='loading'&&document.readyState!='interactive';});}
+else{deferWait(function(){setTimeout(sendToInside,500);},function(){var insideloadbool=false;try{var insideloadbool=document.readyState!='loading';if(!insideloadbool)
+insideloadbool=(typeof(lmd)!="undefined"&&lmd!=null&&lmd.language&&lmd.country);}
+catch(tempex){}
+if(insideloadbool){keepWait(sendToInside,function(){if(!_insideFirstLoad)
+return false;if(typeof(_insideGraph)!="undefined"&&_insideGraph!=null){var temporderdata=getOrderData();if(temporderdata!=null&&temporderdata.length>0){for(var i=0;i<temporderdata.length;i++){if(temporderdata[i].action=="trackOrder"){if(insideOrderTotal!=temporderdata[i].orderTotal){return true;}}}}
+else if(insideOrderTotal>0){insideOrderTotal=0;return true;}}
+return false;});return true;}
+return false;});}}
+if(window.location.href.indexOf("no_insidechat=true")!=-1){return;}
+else{if(typeof(_insideGraph)!="undefined"&&_insideGraph!=null&&typeof(_insideGraph.current)!="undefined"&&_insideGraph.current!=null){processInside(_insideGraph.current)}
+else{var insideTracker={"action":"getTracker","crossDomain":false,"account":accountKey};try{var tempurl=window.location.href.toLowerCase();if(tempurl.indexOf("/insmbpro")!=-1||tempurl.indexOf("/lenovopro")!=-1){subsiteId="121";}
+else{subsiteId="120";}}
+catch(tempex){}
+if(typeof(subsiteId)!="undefined"&&subsiteId!=null)
+insideTracker["subsiteId"]=subsiteId;_inside.push(insideTracker);_inside.push({"action":"bind","name":"onload","callback":function(tracker){if(_insideFirstLoad)
+return;_insideJQ=_insideGraph.jQuery;processInside(tracker);}});(function(w,d,s,u){a=d.createElement(s),m=d.getElementsByTagName(s)[0];a.async=1;a.src=u;m.parentNode.insertBefore(a,m);})(window,document,"script","//"+trackerURL+"/ig.js");deferWait(function(){var websiteId=insideFrontInterface.chat.userid.split(':')[1];_insideGraph.loadJS(_insideCDN+'custom/'+websiteId+'-customScript.js?v='+_insideScriptVersion);_insideGraph.loadJS(_insideCDN+'custom/lenovo-addtobasket.js?v='+_insideScriptVersion);},function(){return typeof _insideGraph!='undefined'&&_insideGraph.loadJS&&typeof insideFrontInterface!='undefined'&&insideFrontInterface.chat&&insideFrontInterface.chat.userid;});}}
+try{function callEventListener(eventLabel){if(typeof(insideFrontInterface)=="undefined"||insideFrontInterface==null||typeof insideFrontInterface.triggerVisitorEvent=="undefined"||insideFrontInterface.triggerVisitorEvent==null){setTimeout(callEventListener,500);return;}
+insideFrontInterface.triggerVisitorEvent(eventLabel);}
+const insideExitIntentMouseEvent=e=>{const shouldShowExitIntent=!e.toElement&&!e.relatedTarget&&e.clientY<10;if(shouldShowExitIntent){document.removeEventListener('mouseout',insideExitIntentMouseEvent);callEventListener("exit_intent");}};document.addEventListener('mouseout',insideExitIntentMouseEvent);}
+catch(tempex){}})();

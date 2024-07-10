@@ -1,0 +1,18 @@
+window.DigitalFeedback['https://digitalfeedback.us.confirmit.com/api/digitalfeedback/loader/prod/scenario?programKey=Eh6Au0&scenarioId=1348&programVersion=233'] = function (api) {
+ConfirmitLog(true,"CONF - Survey Config v1");
+
+globalSurveyConfig = {
+  
+  'p3094257258' : {
+    'pagecount' : '3',
+    'incidence' : '1',
+    'delay':'4'
+  },
+  
+  'p3094292724' : {
+ },
+
+  'p3094292949' : {
+  }
+}
+};

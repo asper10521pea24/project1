@@ -1,0 +1,16 @@
+window.DigitalFeedback['https://digitalfeedback.us.confirmit.com/api/digitalfeedback/loader/prod/scenario?programKey=Eh6Au0&scenarioId=1393&programVersion=233'] = function (api) {
+window.isieedge = function() {
+                return (document.documentMode || /Edge/.test(navigator.userAgent) || /Edg/.test(navigator.userAgent));
+            }
+
+window.ConfisMobile = function()
+{
+    var win = window,
+    doc = document,
+    docElem = doc.documentElement,
+    body = doc.getElementsByTagName('body')[0],
+    x = win.innerWidth || docElem.clientWidth || body.clientWidth,
+    y = win.innerHeight|| docElem.clientHeight|| body.clientHeight;
+    return (x < 1280) ? "1" : "0";
+}
+};

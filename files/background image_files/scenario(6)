@@ -1,0 +1,230 @@
+window.DigitalFeedback['https://digitalfeedback.us.confirmit.com/api/digitalfeedback/loader/prod/scenario?programKey=Eh6Au0&scenarioId=9571&programVersion=233'] = function (api) {
+getMonitorWindowText = function(languagecode,countrycode,doNEC,cp,sp)
+{
+	var lstr = ""+languagecode;
+	var lstrlc = lstr.toLowerCase();
+	var lcc = ""+countrycode;
+	var lcclc = lcc.toLowerCase();
+
+    console.log('lc: ' + lstrlc);
+	console.log('cc: ' + lcclc);
+	console.log('lc_cc: ' + lstrlc + '_' + lcclc);
+  
+  var clnk;
+
+  if(cp)
+  {
+      clnk = "https://" + cp;
+  }
+  else if(sp)
+  {
+      clnk = "https://www.lenovo.com";
+      clnk += sp;
+      var ct = "/contact";
+	  if( lstrlc == 'es' ) { ct = "/contacto"; }
+      switch(lcclc)
+      {
+          case "es": ct = "/contact"; break;
+          case "mx": ct = "/contacto"; break;
+          case "br": ct = "/contato"; break;
+      }
+      clnk += ct;
+  }
+  else
+  {
+      clnk = "https://www.lenovo.com/" + lcc + "/" + lstr + "/contact/"
+  }
+  
+ 
+	var txts = {
+		 
+	"en" : {
+	"t1" : "Thank you for helping us improve our website",
+	"t2" : "If your visit to our website is complete, please click on Start Survey below.",
+	"t3" : "Otherwise, please leave this window and return once you are done.",
+	"t4" : "Start Survey",
+	"t5" : "Need technical or order support? <a class='csi' href='" + clnk + "' target='_blank'>Get help now</a>.",
+	},
+
+	"de" : {
+	"t1" : "Vielen Dank, dass Sie uns bei der Optimierung unserer Website helfen.",
+	"t2" : "Sobald Sie mit dem Besuch unserer Website fertig sind, klicken Sie bitte unten auf „Umfrage starten“.",
+	"t3" : "Ansonsten schließen Sie bitte das Fenster und kehren dann zurück.",
+	"t4" : "Umfrage starten",
+	"t5" : "Benötigen Sie technische Unterstützung oder haben Sie Fragen zu einer Bestellung? <a class='csi' href='" + clnk + "' target='_blank'>Erhalten Sie jetzt Hilfe</a>.",
+	},
+
+	"fr" : {
+	"t1" : "Nous vous remercions de nous aider à améliorer notre site Web.",
+	"t2" : "Si votre visite sur notre site Web est terminée, cliquez sur Démarrer l'enquête ci-dessous.",
+	"t3" : "Dans le cas contraire, quittez cette fenêtre et revenez-y une fois que vous avez terminé.",
+	"t4" : "Démarrer l'enquête",
+	"t5" : "Vous avez besoin d’un support technique ou d’une assistance pour une commande ? <a class='csi' href='" + clnk + "' target='_blank'>Obtenez de l’aide maintenant</a>.",
+	},
+      
+	"fr_ca" : {
+	"t1" : "Merci de nous aider à améliorer notre site Web",
+	"t2" : "Si votre visite sur notre site Web est terminée, veuillez cliquer sur Commencer l'enquête ci-dessous.",
+	"t3" : "Sinon, veuillez quitter cette fenêtre et revenir une fois que vous avez terminé.",
+	"t4" : "Commencer l'enquête",
+	"t5" : "Vous avez besoin de soutien technique ou d'assistance aux commandes? <a class='csi' href='" + clnk + "' target='_blank'>Obtenez de l'aide maintenant</a>.",
+	},
+      
+	"zh" : {
+	"t1" : "感謝您幫助改善我們網站的體驗。",
+	"t2" : "如果您已完成對我們網站的訪問，請單擊下面的「開始調查」。",
+	"t3" : "否則，請離開此窗口並在完成後返回。",
+	"t4" : "開始調查",
+	"t5" : "需要技術支援或採購協助嗎? <a class='csi' href='" + clnk + "' target='_blank'>點擊這</a>裡聯繫我們",
+	},
+
+	"ja" : {
+	"t1" : "いただいたご意見は、弊社サイトの改善に反映させていただきます",
+	"t2" : "弊社サイトの閲覧が終わった場合、下記のアンケートを開始 ボタンをクリックしてください",
+	"t3" : "もしくは、こちらのウィンドウを残したままで、完了後にお戻りください",
+	"t4" : "アンケートを開始",
+	"t5" : "お困りですか？ 各種サポート窓口は <a class='csi' href='" + clnk + "' target='_blank'>こちら</a>",
+	},
+	
+	"es" : {
+	"t1" : "Gracias por ayudarnos a mejorar nuestro sitio web",
+	"t2" : "Si ha terminado su visita a nuestro sitio web, haga clic en el botón Empezar encuesta que se encuentra a continuación.",
+	"t3" : "De no ser así, salga de esta ventana y vuelva cuando haya terminado.",
+	"t4" : "Empezar encuesta",
+	"t5" : "¿Necesitáis asistencia técnica o para ordenes de compra? <a class='csi' href='" + clnk + "' target='_blank'>Consigue ayuda ahora</a>.",
+	},
+
+	"es_mx" : {
+	"t1" : "Gracias por ayudarnos a mejorar nuestro sitio web",
+	"t2" : "Si ha finalizado su visita, haga clic en el botón Empezar Encuesta a continuación.",
+	"t3" : "De no ser así, abandone esta ventana y regrese al finalizar.",
+	"t4" : "Empezar Encuesta",
+	"t5" : "¿Necesitas soporte técnico o para pedidos? <a class='csi' href='" + clnk + "' target='_blank'>Consigue ayuda ahora</a>.",
+	},
+
+	"fi" : {
+	"t1" : "Kiitos, että autat meitä parantamaan sivustoamme.",
+	"t2" : "Kun olet valmis poistumaan verkkosivustoltamme, napsauta alla olevaa Aloita kysely -painiketta.",
+	"t3" : "Muussa tapauksessa poistu tästä ikkunasta ja palaa takaisin, kun olet valmis.",
+	"t4" : "Aloita kysely",
+	"t5" : "Tarvitsetko teknistä tai tilaukseen liittyvää tukea? <a class='csi' href='" + clnk + "' target='_blank'>Pyydä apua nyt</a>.",
+
+	},
+
+	"it" : {
+	"t1" : "Grazie per averci aiutato a migliorare il nostro sito Web.",
+	"t2" : "Se hai terminato la visita nel nostro sito Web, fai clic su Avvia sondaggio di seguito.",
+	"t3" : "In caso contrario, esci da questa finestra e torna quando avrai terminato.",
+	"t4" : "Avvia sondaggio",
+	"t5" : "Hai bisogno di supporto tecnico o di ordine? <a class='csi' href='" + clnk + "' target='_blank'>Ottenere aiuto ora</a>.",
+	},
+
+	"ko" : {
+	"t1" : "저희 사이트 개선에 대한 의견을 주셔서 감사합니다.",
+	"t2" : "방문을 마치셨을 경우, 설문 시작하기를 클릭해 주세요.",
+	"t3" : "방문을 마치지 않으셨을 경우 나가기를 눌러주시고, 방문 전에 다시 참여해 주세요.",
+	"t4" : "시작하기",
+	"t5" : "기술지원및제품구매 <a class='csi' href='" + clnk + "' target='_blank'>문의하기</a>",
+	},
+
+	"da" : {
+	"t1" : "Tak, fordi du hjælper os med at forbedre vores websted.",
+	"t2" : "Hvis du er færdig med at besøge vores websted, bedes du klikke på Start undersøgelse nedenfor.",
+	"t3" : "Ellers skal du forlade dette vindue og vende tilbage, når du er færdig.",
+	"t4" : "Start undersøgelse",
+	"t5" : "Har du brug for teknisk support eller hjælp til din ordre? <a class='csi' href='" + clnk + "' target='_blank'>Få hjælp nu</a>.",
+	},
+
+	"nl" : {
+	"t1" : "Bedankt voor je hulp bij het verbeteren van onze website.",
+	"t2" : "Als je klaar bent met je bezoek aan onze website, klik je hieronder op Enquête starten.",
+	"t3" : "Verlaat anders dit venster en keer terug wanneer je klaar bent.",
+	"t4" : "Enquête starten",
+	"t5" : "Technische ondersteuning nodig of hulp bij het bestellen? <a class='csi' href='" + clnk + "' target='_blank'>Vraag nu om hulp</a>.",
+	},
+
+	"no" : {
+	"t1" : "Takk for at du hjelper oss med å forbedre nettstedet vårt.",
+	"t2" : "Hvis besøket ditt på nettsiden vår er ferdig, kan du klikke på «Start undersøkelsen» nedenfor.",
+	"t3" : "Hvis ikke går du ut av dette vinduet og kommer tilbake når du er ferdig.",
+	"t4" : "Start undersøkelsen",
+	"t5" : "Trenger du teknisk hjelp eller hjelp med en bestilling? <a class='csi' href='" + clnk + "' target='_blank'>Få hjelp nå</a>.",
+	},
+
+	"pt" : {
+	"t1" : "Obrigado por nos ajudar a melhorar o nosso site.",
+	"t2" : "Se tiver terminado a sua visita ao nosso website, por favor clique abaixo em Iniciar Inquérito.",
+	"t3" : "Caso contrário, por favor, saia desta janela e volte quando terminar.",
+	"t4" : "Iniciar Inquérito",
+	"t5" : "Precisa de suporte técnico ou para encomendas? <a class='csi' href='" + clnk + "' target='_blank'>Obtenha ajuda já</a>.",
+	},
+
+	"pt_br" : {
+	"t1" : "Obrigado por nos ajudar a melhorar o nosso site.",
+	"t2" : "Se a sua visita ao nosso site estiver concluída, clique em Iniciar pesquisa abaixo.",
+	"t3" : "Caso contrário, saia desta janela e volte quando terminar.",
+	"t4" : "Iniciar Pesquisa",
+	"t5" : "Precisa de Suporte Técnico ou de Ajuda com seu Pedido? <a class='csi' href='" + clnk + "' target='_blank'>Consiga agora</a>.",
+	},
+
+	"sv" : {
+	"t1" : "Tack för att du hjälper oss att förbättra vår webbplats.",
+	"t2" : "Klicka på Starta enkäten nedan om du är klar med ditt besök på vår webbplats.",
+	"t3" : "I annat fall kan du lämna det här fönstret och komma tillbaka när du är klar.",
+	"t4" : "Starta enkäten",
+	"t5" : "Behöver du teknisk support eller beställningssupport? <a class='csi' href='" + clnk + "' target='_blank'>Få hjälp nu</a>.",
+	},
+
+	"th" : {
+	"t1" : "ขอขอบคุณที่ช่วยเราปรับปรุงเว็บไซต์ของเรา",
+	"t2" : "หากการเยี่ยมชมเว็บไซต์ของเราเสร็จสิ้น โปรดคลิกเริ่มการสำรวจด้านล่าง",
+	"t3" : "มิฉะนั้น โปรดออกจากหน้าต่างนี้และกลับมาอีกครั้งเมื่อดำเนินการเสร็จสิ้น",
+	"t4" : "เริ่มการสำรวจ",
+	"t5" : "คุณกำลังต้องการความช่วยเหลือด้านเทคนิคหรือการสั่งซื้ออยู่หรือเปล่า? <a class='csi' href='" + clnk + "' target='_blank'>ติดต่อรับควา</a>มช่วยเหลือจากเราได้เลย",
+	},
+      
+	}
+
+	var mtxts = txts[lstrlc];
+	
+	if(!mtxts)
+	{
+		mtxts = txts["en"];
+	}
+
+	if(lstrlc == 'fr' && lcclc == 'ca')
+	{
+		mtxts = txts['fr_ca'];
+	}
+	else if(lstrlc == 'es' && lcclc == 'mx')
+	{
+		mtxts = txts['es_mx'];
+	}
+	else if (lstrlc == 'pt' && lcclc == 'br')
+	{
+		mtxts = txts['pt_br'];
+	}
+	
+	if( !(lstrlc == 'fr' || lstrlc == 'fr_ca' || lstrlc == 'en' || lstrlc == 'de' || lstrlc == 'zh' || lstrlc == 'ja' || lstrlc == 'es' || lstrlc == 'es_mx' || lstrlc == 'fi' || lstrlc == 'it' || lstrlc == 'ko' || lstrlc == 'da' || lstrlc == 'nl' || lstrlc == 'no' || lstrlc == 'pt' || lstrlc == 'pt_br' || lstrlc == 'sv' || lstrlc == 'th') )
+	{
+		mtxts = txts['en']; 
+	}
+
+if( doNEC )
+{
+    console.log('NEC|' + lstrlc )
+	return '<img src="https://survey.us.confirmit.com/isa/CBAPBBDDFXGRHABAHMGDPBEPBRLTPOPR/DF/laviewlogo.png" id="mwln"><div id="mwh"> アンケートにご協力いただき、誠にありがとうございます。<br /> <u>※ご回答は、ご利用・閲覧を終えた後にお願いいたします。</u></div><div id="mwc"><u> ご利用・閲覧後、</u>ウェブサイトが表示されているウィンドウを閉じて下さい。<br /> その後、別のアンケート用ウィンドウが開きますので、そちらよりご回答ください。<br /> <u>※アンケートを開始するまでは、本ウィンドウを閉じずにお待ち下さい。</u><p>NECダイレクトを、引き続きお楽しみください。</p></div><div id="mws">アンケートを開始する</div>';
+}
+else if( lstrlc == 'ja' )
+{
+    console.log('LENOVO New|' + lstrlc )
+	return '<img src="https://survey.us.confirmit.com/isa/CBAPBBDDFXGRHABAHMGDPBEPBRLTPOPR/DF/lenovo.png" id="mwln"><div id="mwh"> アンケートにご協力いただき、誠にありがとうございます。<br /> <u>※ご回答は、ご利用・閲覧を終えた後にお願いいたします。</u></div><div id="mwc"><u> ご利用・閲覧後、</u>ウェブサイトが表示されているウィンドウを閉じて下さい。<br /> その後、別のアンケート用ウィンドウが開きますので、そちらよりご回答ください。<br /> <u>※アンケートを開始するまでは、本ウィンドウを閉じずにお待ち下さい。</u><p>レノボ・ショッピングサイトを、引き続きお楽しみください。</p></div><div id="mws">アンケートを開始する</div><div> <p>お困りですか？ 各種サポート窓口は <a class="csi" href="' + clnk + '"	target="_blank">こちら</a></p></div>';    
+}
+else
+{
+    console.log('LENOVO Old|' + lstrlc )
+	return '<img src="https://survey.us.confirmit.com/isa/CBAPBBDDFXGRHABAHMGDPBEPBRLTPOPR/DF/lenovo.png" id="mwl"><div id="mwh">' + mtxts['t1'] + '</div> <div id="mwc">' + mtxts['t2'] + ' ' + mtxts['t3'] + '</div><div id="mws">' + mtxts['t4'] + '</div><div><p>' + mtxts['t5'] + "</p></div>";
+}
+  
+}
+};

@@ -1,0 +1,75 @@
+document.onscroll = function () {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop;
+    if (scroll > 150) {
+        document.querySelector('body').classList.add('scrolled');
+    } else {
+        document.querySelector('body').classList.remove('scrolled');
+    }
+};
+
+const simpleCarousel = ((wrapperClass) => {
+    let cw = document.querySelector(wrapperClass);
+    let ct = cw.querySelectorAll('.carouselo-nav a');
+    ct.forEach((a) => {
+        a.addEventListener('click', (b) => {
+            b.preventDefault();
+            let t = b.target;
+            while (t.nodeName !== 'A') {
+                t = t.parentNode;
+            }
+            ct.forEach((a) => {
+                a.classList.remove('active');
+            });
+            a.classList.add('active');
+            let target = t.dataset.target;
+            cw.querySelectorAll('.carouselo-slide').forEach((c) => {
+                c.classList.remove('active');
+                if(c.getAttribute('id') === target) {
+                    c.classList.add('active');
+                    cw.style.height = c.scrollHeight + 'px';
+                }
+            });
+        });
+    });
+});
+
+document.querySelectorAll('.fold-tabs_item').forEach((item) => {
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
+        let c = item.querySelector('.fold-tabs_folded');
+        let currentStatus = item.classList.contains('active');
+        document.querySelectorAll('.fold-tabs_item').forEach((i) => {
+            let ic = i.querySelector('.fold-tabs_folded');
+            ic.style.height = '0px';
+            i.classList.remove('active');
+        });
+        if(currentStatus) return false;
+        c.style.height = c.scrollHeight + 'px';
+        item.classList.add('active');
+    });
+});
+
+
+const modal = document.getElementById('YogaVideoModal');
+const video = document.getElementById('videoFrame');
+document.getElementById('playVideo').onclick = function (e) {
+	e.preventDefault();
+	modal.style.display = 'flex';
+	video.src += '?autoplay=1';
+};
+document.getElementsByClassName('closeVideoModal')[0].onclick = function (e) {
+	e.preventDefault();
+	modal.style.display = 'none';
+	video.src = video.src.replace('?autoplay=1', '');
+};
+window.onclick = function (e) {
+	if (e.target == modal) {
+		modal.style.display = 'none';
+		video.src = video.src.replace('?autoplay=1', '');
+	}
+};
+
+
+simpleCarousel('#carousel-1');
+simpleCarousel('#carousel-2');
+

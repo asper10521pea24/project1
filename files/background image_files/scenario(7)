@@ -1,0 +1,196 @@
+window.DigitalFeedback['https://digitalfeedback.us.confirmit.com/api/digitalfeedback/loader/prod/scenario?programKey=Eh6Au0&scenarioId=1347&programVersion=233'] = function (api) {
+getWelcomeText = function(languagecode,countrycode)
+{
+ var lstr = ""+languagecode;
+ var lstrlc = lstr.toLowerCase();
+ var lcc = ""+countrycode;
+ var lcclc = lcc.toLowerCase();
+  
+ var txts = {
+	 
+	
+	"en" : {
+	"t1" : "Please Leave this window open",
+	"t2" : "This window is part of the customer satisfaction survey you agreed to take on this site.",
+	"t3" : "Click in your main browser window to continue browsing.",
+	"t4" : "After leaving the website, this window will present the survey",
+	"t5" : "<span style=\"color:#ff0000;\">Please Note:</span>  You may need to select this browser window to complete the survey.",
+	"t6" : "Thank you for helping us improve your website experience.",
+	},
+
+	"da" : {
+	"t1" : "Lad dette vindue være åbent",
+	"t2" : "Dette vindue er en del af den kundetilfredshedsundersøgelse, du accepterede at deltage i på dette websted.",
+	"t3" : "Klik i dit primære browservindue for at fortsætte din browsing.",
+	"t4" : "Når du har forladt webstedet, vises undersøgelsen i dette vindue",
+	"t5" : "<span style=\"color:#ff0000;\">Bemærk:</span>  Du skal muligvis vælge dette browservindue for at fuldføre undersøgelsen.",
+	"t6" : "Tak, fordi du hjælper os med at forbedre din webstedsoplevelse.",
+	},
+	
+	"de" : {
+	"t1" : "Dieses Fenster geöffnet lassen",
+	"t2" : "Dieses Fenster gehört zur Kundenzufriedenheitsumfrage dieser Website, für deren Teilnahme Sie zugestimmt haben.",
+	"t3" : "Klicken Sie in das Browser-Hauptfenster, um die Website weiter zu durchsuchen.",
+	"t4" : "Nach dem Verlassen der Website wird in diesem Fenster die Umfrage angezeigt",
+	"t5" : "<span style=\"color:#ff0000;\">Hinweis:</span>  Sie müssen möglicherweise dieses Fenster auswählen, um die Umfrage abzuschließen.",
+	"t6" : "Vielen Dank, dass Sie uns dabei helfen, Ihre Erfahrung mit dieser Website zu verbessern.",
+	},
+
+	"es" : {
+	"t1" : "Deje esta ventana abierta",
+	"t2" : "Esta ventana es parte de la encuesta de satisfacción del cliente que aceptó realizar en este sitio.",
+	"t3" : "Haga clic en la ventana principal del navegador para seguir navegando.",
+	"t4" : "Después de salir del sitio web, la encuesta se mostrará en esta ventana",
+	"t5" : "<span style=\"color:#ff0000;\">Nota:</span>  es posible que tenga que deba seleccionar esta ventana del navegador para completar la encuesta.",
+	"t6" : "Gracias por ayudarnos a mejorar su experiencia en este sitio web.",
+	},
+
+	"es_mx" : {
+	"t1" : "Deje abierta esta ventana",
+	"t2" : "Esta ventana es parte de la encuesta de satisfacción del cliente que aceptó contestar en este sitio.",
+	"t3" : "Haga clic en la ventana principal del navegador para seguir navegando.",
+	"t4" : "Después de abandonar el sitio web, en esta ventana aún aparecerá la encuesta",
+	"t5" : "<span style=\"color:#ff0000;\">Tenga presenta:</span>  es posible que deba seleccionar esta ventana del navegador para completar la encuesta.",
+	"t6" : "Gracias por ayudarnos a mejorar su experiencia en el sitio web.",
+	},
+	
+	"fi" : {
+	"t1" : "Jätä tämä ikkuna auki",
+	"t2" : "Tämä ikkuna on osa asiakastyytyväisyystutkimusta, johon suostuit osallistumaan tällä sivustolla.",
+	"t3" : "Napsauta pääselainikkunaasi jatkaaksesi selaamista.",
+	"t4" : "Näet kyselyn tässä ikkunassa, kun olet poistunut verkkosivustolta",
+	"t5" : "<span style=\"color:#ff0000;\">Huomaa:</span>  Saatat joutua valitsemaan tämän selainikkunan suorittaaksesi kyselyn loppuun.",
+	"t6" : "Kiitos, että autat meitä parantamaan käyttökokemustasi verkkosivustolla.",
+	},
+	
+	"fr" : {
+	"t1" : "Veuillez garder cette fenêtre ouverte",
+	"t2" : "Cette fenêtre fait partie de l'enquête de satisfaction client que vous avez accepté de remplir sur ce site.",
+	"t3" : "Cliquez sur la fenêtre principal de votre navigateur pour continuer à naviguer.",
+	"t4" : "Après avoir quitté le site, cette fenêtre affichera l'enquête",
+	"t5" : "<span style=\"color:#ff0000;\">Remarque :</span>  vous pourrez avoir besoin de cliquer sur cette fenêtre pour remplir l'enquête.",
+	"t6" : "Nous vous remercions de nous aider à améliorer votre expérience sur notre site.",
+	},
+	
+	"it" : {
+	"t1" : "Lasciare questa finestra aperta",
+	"t2" : "La finestra fa parte del sondaggio sulla soddisfazione del cliente a cui ha acconsentito di partecipare su questo sito.",
+	"t3" : "Fare clic sulla finestra del browser principale per continuare a navigare.",
+	"t4" : "Dopo aver chiuso la pagina Web, su questa finestra apparirà il sondaggio",
+	"t5" : "<span style=\"color:#ff0000;\">Importante:</span>  potrebbe essere necessario selezionare questa finestra del browser per completare il sondaggio.",
+	"t6" : "Grazie per averci aiutato a migliorare la sua esperienza del sito Web.",
+	},
+	
+	"ja" : {
+	"t1" : "アンケートへの回答にご協力いただき、ありがとうございます。",
+	"t2" : "",
+	"t3" : "今ご覧になっている、サブウィンドウ（ポップアップ）は、閉じずに表示させておいてください。<br>※アンケートの回答に同意いただいたお客様へ表示しております。",
+	"t4" : "アンケート開始のために、メインウィンドウを閉じてください<br>※アンケートは、サブウィンドウにてまもなく開始します。",
+	"t5" : "",
+	"t6" : "",
+	},
+	
+	"ko" : {
+	"t1" : "이 창을 열어 두십시오",
+	"t2" : "이 창은 귀하가 해당 사이트에서 하기로 동의한 고객 만족도 조사의 일부입니다.",
+	"t3" : "검색을 계속하려면 기본 브라우저 창을 클릭하십시오.",
+	"t4" : "웹사이트를 나가면, 이 창에 설문조사가 표시됩니다",
+	"t5" : "<span style=\"color:#ff0000;\">참고:</span>  설문조사를 완료하려면 이 브라우저 창을 선택해야 할 수 있습니다.",
+	"t6" : "웹사이트 경험을 개선하는 데 도움을 주셔서 감사합니다.",
+	},
+	
+	"nl" : {
+	"t1" : "Laat dit venster open",
+	"t2" : "Dit venster maakt deel uit van het klanttevredenheidsonderzoek waaraan u op deze site wilde meedoen.",
+	"t3" : "Klik in uw hoofdbrowservenster om door te gaan met surfen.",
+	"t4" : "Na het verlaten van de website zal dit venster de enquête presenteren",
+	"t5" : "<span style=\"color:#ff0000;\">Let op:</span>  Mogelijk moet u dit browservenster selecteren om de enquête te voltooien.",
+	"t6" : "Bedankt voor uw hulp bij het verbeteren van uw website-ervaring.",
+	},
+	
+	"no" : {
+	"t1" : "La dette vinduet være åpent",
+	"t2" : "Dette vinduet er en del av kundetilfredshetsundersøkelsen du sa ja til å gjennomføre på dette nettstedet.",
+	"t3" : "Klikk i hovednettleservinduet for å fortsette å bla.",
+	"t4" : "Etter at du har forlatt nettstedet, blir undersøkelsen presentert i dette vinduet",
+	"t5" : "Du må kanskje velge dette nettleservinduet for å fullføre undersøkelsen.",
+	"t6" : "Takk for at du hjelper oss å forbedre nettstedopplevelsen din.",
+	},
+	
+	"pt" : {
+	"t1" : "Por favor, deixe esta janela aberta",
+	"t2" : "Esta janela faz parte da pesquisa de satisfação do cliente que concordou em realizar neste site.",
+	"t3" : "Clique na janela principal do seu navegador para continuar a navegar.",
+	"t4" : "Depois de sair do site, esta janela apresentará a pesquisa",
+	"t5" : "<span style=\"color:#ff0000;\">Observação:</span>  talvez seja necessário selecionar esta janela do navegador para concluir a pesquisa.",
+	"t6" : "Obrigado por nos ajudar a melhorar a sua experiência no site.",
+	},
+	
+	"pt_br" : {
+	"t1" : "Deixe esta janela aberta",
+	"t2" : "Esta janela faz parte da pesquisa de satisfação do cliente da qual você concordou participar neste site.",
+	"t3" : "Clique na janela principal do navegador para continuar navegando.",
+	"t4" : "Depois de sair do site, esta janela apresentará a pesquisa",
+	"t5" : "<span style=\"color:#ff0000;\">Nota:</span>  talvez você precise selecionar esta janela do navegador para concluir a pesquisa.",
+	"t6" : "Obrigado por nos ajudar a aprimorar sua experiência no site.",
+	},
+	
+	"sv" : {
+	"t1" : "Låt detta fönster vara öppet",
+	"t2" : "Det här fönstret ingår i den kundnöjdhetsundersökning som du gick med på att göra på den här webbplatsen.",
+	"t3" : "Klicka i huvudfönstret om du vill fortsätta surfa.",
+	"t4" : "När du har lämnat webbplatsen finns undersökningen inte längre kvar i fönstret",
+	"t5" : "<span style=\"color:#ff0000;\">Obs!</span>  Du kanske måste markera det här webbläsarfönstret för att genomföra undersökningen.",
+	"t6" : "Tack för att du hjälper oss att förbättra din webbplatsupplevelse.",
+	},
+	
+	"th" : {
+	"t1" : "โปรดเปิดหน้าต่างนี้ทิ้งไว้",
+	"t2" : "หน้าต่างนี้เป็นส่วนหนึ่งของแบบสำรวจความพึงพอใจของลูกค้าที่คุณตกลงที่จะทำในเว็บไซต์นี้",
+	"t3" : "คลิกที่หน้าต่างเบราว์เซอร์หลักของคุณเพื่อเรียกดูต่อ",
+	"t4" : "หลังจากออกจากเว็บไซต์แล้ว แบบสำรวจจะปรากฏขึ้นในหน้าต่างนี้",
+	"t5" : "<span style=\"color:#ff0000;\">โปรดทราบ: </span> คุณอาจต้องเลือกหน้าต่างเบราว์เซอร์นี้เพื่อทำแบบสำรวจ",
+	"t6" : "ขอบคุณที่ช่วยเราพัฒนาประสบการณ์การการใช้งานเว็บไซต์ของคุณ",
+	},
+	
+	"tw" : {
+	"t1" : "請將此視窗保持開啟狀態",
+	"t2" : "此視窗是您同意在此網站上進行的客戶滿意度調查的一部分。",
+ 	"t3" : "在主瀏覽器視窗中點擊以繼續瀏覽。",
+	"t4" : "離開網站後，此視窗將顯示調查內容",
+ 	"t5" : "<span style=\"color:#ff0000;\">請注意：</span> 您可能需要選擇此瀏覽器視窗才能完成調查。",
+	"t6" : "感謝您協助我們改善您的網站使用體驗。",
+	},
+	
+	"zh" : {
+	"t1" : "請將此視窗保持開啟狀態",
+	"t2" : "此視窗是您同意在此網站上進行的客戶滿意度調查的一部分。",
+	"t3" : "在主瀏覽器視窗中點擊以繼續瀏覽。",
+	"t4" : "離開網站後，此視窗將顯示調查內容",
+	"t5" : "<span style=\"color:#ff0000;\">請注意：</span> 您可能需要選擇此瀏覽器視窗才能完成調查。",
+	"t6" : "感謝您協助我們改善您的網站使用體驗。",
+	},
+}
+    var mtxts = txts['en'];
+	
+	if(lstrlc == 'es' && lcclc == 'mx')
+	{
+		mtxts = txts['es_mx'];
+	}
+	else if (lstrlc == 'pt' && lcclc == 'br')
+	{
+		mtxts = txts['pt_br'];
+	}
+	else
+	{
+		mtxts = txts[lstrlc];
+	}
+	if(languagecode=="ja")
+    {
+		return '<div class=tb><h3 style="margin-top: 0;">' + mtxts['t1'] + '</h3><div>' + mtxts['t3'] + '</div><br><div>' + mtxts['t4'] + '</div></div>';
+    }else
+    {
+      	return '<div class=tb><h3 style="margin-top: 0;">' + mtxts['t1'] + '</h3>' + mtxts['t2'] + '<ol><li>' + mtxts['t3'] + '</li><li>' + mtxts['t4'] + '</li></ol><span style="font-size:14px;font-weight:bold;">' + mtxts['t5'] + '</span><br><br><strong>' + mtxts['t6']; 
+    }
+}
+};

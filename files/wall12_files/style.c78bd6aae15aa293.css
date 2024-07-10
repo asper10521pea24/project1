@@ -1,0 +1,704 @@
+@import url("https://c1-ofp.static.pub/t_/en_us/SystemFragment/iconfont/color.css");
+@font-face {
+  font-family: 'icomoon';
+  src: url("https://p1-ofp.static.pub/SystemFragment/iconfont/icomoon.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="iconfont-"], [class*=" iconfont-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconfont-trashBin:before {
+  content: "\e9a5";
+}
+.iconfont-playARSq:before {
+  content: "\e9a4";
+}
+.iconfont-arrowToTop:before {
+  content: "\e9a2";
+}
+.iconfont-closeIconWithBg .path1:before {
+  content: "\e91d";
+  color: rgb(109, 101, 111);
+}
+.iconfont-closeIconWithBg .path2:before {
+  content: "\e92a";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-download:before {
+  content: "\e91b";
+}
+.iconfont-instagram .path1:before {
+  content: "\e96f";
+  color: rgb(41, 78, 149);
+}
+.iconfont-instagram .path2:before {
+  content: "\e970";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-instagram .path3:before {
+  content: "\e971";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-instagram .path4:before {
+  content: "\e972";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-pinterest .path1:before {
+  content: "\e990";
+  color: rgb(41, 78, 149);
+}
+.iconfont-pinterest .path2:before {
+  content: "\e991";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-youtube .path1:before {
+  content: "\e9a0";
+  color: rgb(41, 78, 149);
+}
+.iconfont-youtube .path2:before {
+  content: "\e9a1";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-tiktok .path1:before {
+  content: "\e998";
+  color: rgb(41, 78, 149);
+}
+.iconfont-tiktok .path2:before {
+  content: "\e999";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-facebook .path1:before {
+  content: "\e958";
+  color: rgb(41, 78, 149);
+}
+.iconfont-facebook .path2:before {
+  content: "\e959";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-twitter .path1:before {
+  content: "\e99a";
+  color: rgb(41, 78, 149);
+}
+.iconfont-twitter .path2:before {
+  content: "\e99b";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-icon-badge:before {
+  content: "\e95c";
+}
+.iconfont-icon-shield:before {
+  content: "\e964";
+}
+.iconfont-account-user:before {
+  content: "\e93b";
+}
+.iconfont-cart:before {
+  content: "\e94d";
+  color: #fff;
+}
+.iconfont-contact-us:before {
+  content: "\e952";
+  color: #fff;
+}
+.iconfont-cpu-gpu-graphic:before {
+  content: "\e953";
+}
+.iconfont-cpu-gpu-memory:before {
+  content: "\e954";
+}
+.iconfont-cpu-gpu-processor:before {
+  content: "\e955";
+}
+.iconfont-cpu-gpu-storage:before {
+  content: "\e956";
+}
+.iconfont-desktop:before {
+  content: "\e957";
+  color: #fff;
+}
+.iconfont-furniture-chair:before {
+  content: "\e95a";
+  color: #fff;
+}
+.iconfont-furniture-chair-black:before {
+  content: "\e984";
+}
+.iconfont-icon-alert-success:before {
+  content: "\e95b";
+}
+.iconfont-icon-cart-full .path1:before {
+  content: "\e95d";
+  color: rgb(0, 0, 0);
+}
+.iconfont-icon-cart-full .path2:before {
+  content: "\e95e";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-icon-cart-full .path3:before {
+  content: "\e95f";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.iconfont-icon-cart-full .path4:before {
+  content: "\e960";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-icon-cart-full .path5:before {
+  content: "\e961";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.iconfont-icon-clipboard:before {
+  content: "\e962";
+}
+.iconfont-icon-lock:before {
+  content: "\e963";
+}
+.iconfont-icon-ui-sale .path1:before {
+  content: "\e965";
+  color: rgb(0, 0, 0);
+}
+.iconfont-icon-ui-sale .path2:before {
+  content: "\e966";
+  margin-left: -0.984375em;
+  color: rgb(23, 23, 23);
+}
+.iconfont-icon-ui-sale .path3:before {
+  content: "\e967";
+  margin-left: -0.984375em;
+  color: rgb(0, 0, 0);
+}
+.iconfont-icon-ui-sale .path4:before {
+  content: "\e968";
+  margin-left: -0.984375em;
+  color: rgb(23, 23, 23);
+}
+.iconfont-icon-ui-sale .path5:before {
+  content: "\e969";
+  margin-left: -0.984375em;
+  color: rgb(0, 0, 0);
+}
+.iconfont-icon-ui-sale .path6:before {
+  content: "\e96a";
+  margin-left: -0.984375em;
+  color: rgb(23, 23, 23);
+}
+.iconfont-icon-ui-sale .path7:before {
+  content: "\e96b";
+  margin-left: -0.984375em;
+  color: rgb(0, 0, 0);
+}
+.iconfont-icon-ui-sale .path8:before {
+  content: "\e96c";
+  margin-left: -0.984375em;
+  color: rgb(23, 23, 23);
+}
+.iconfont-icon-ui-sale .path9:before {
+  content: "\e96d";
+  margin-left: -0.984375em;
+  color: rgb(0, 0, 0);
+}
+.iconfont-icon-ui-sale .path10:before {
+  content: "\e96e";
+  margin-left: -0.984375em;
+  color: rgb(23, 23, 23);
+}
+.iconfont-laptop:before {
+  content: "\e973";
+  color: #fff;
+}
+.iconfont-lenovo-ThinkPad .path1:before {
+  content: "\e974";
+  color: rgb(213, 14, 27);
+}
+.iconfont-lenovo-ThinkPad .path2:before {
+  content: "\e975";
+  margin-left: -2.5166015625em;
+  color: rgb(23, 12, 19);
+}
+.iconfont-lenovo-ThinkPad .path3:before {
+  content: "\e976";
+  margin-left: -2.5166015625em;
+  color: rgb(23, 12, 19);
+}
+.iconfont-lenovo-ThinkPad .path4:before {
+  content: "\e977";
+  margin-left: -2.5166015625em;
+  color: rgb(23, 12, 19);
+}
+.iconfont-lenovo-ThinkPad .path5:before {
+  content: "\e978";
+  margin-left: -2.5166015625em;
+  color: rgb(23, 12, 19);
+}
+.iconfont-lenovo-ThinkPad .path6:before {
+  content: "\e979";
+  margin-left: -2.5166015625em;
+  color: rgb(23, 12, 19);
+}
+.iconfont-lenovo-ThinkPad .path7:before {
+  content: "\e97a";
+  margin-left: -2.5166015625em;
+  color: rgb(23, 12, 19);
+}
+.iconfont-lenovo-ThinkPad .path8:before {
+  content: "\e97b";
+  margin-left: -2.5166015625em;
+  color: rgb(23, 12, 19);
+}
+.iconfont-lenovo-ThinkPad .path9:before {
+  content: "\e97c";
+  margin-left: -2.5166015625em;
+  color: rgb(23, 12, 19);
+}
+.iconfont-lenovo-ThinkPad .path10:before {
+  content: "\e97d";
+  margin-left: -2.5166015625em;
+  color: rgb(23, 12, 19);
+}
+.iconfont-lenovo-ThinkPad .path11:before {
+  content: "\e97e";
+  margin-left: -2.5166015625em;
+  color: rgb(23, 12, 19);
+}
+.iconfont-lenovo-ThinkPad .path12:before {
+  content: "\e97f";
+  margin-left: -2.5166015625em;
+  color: rgb(23, 12, 19);
+}
+.iconfont-lenovo-ThinkPad .path13:before {
+  content: "\e980";
+  margin-left: -2.5166015625em;
+  color: rgb(23, 12, 19);
+}
+.iconfont-lenovo-ThinkPad .path14:before {
+  content: "\e981";
+  margin-left: -2.5166015625em;
+  color: rgb(23, 12, 19);
+}
+.iconfont-lenovo-ThinkPad .path15:before {
+  content: "\e982";
+  margin-left: -2.5166015625em;
+  color: rgb(23, 12, 19);
+}
+.iconfont-lenovo-yoga:before {
+  content: "\e983";
+}
+.iconfont-monitor:before {
+  content: "\e985";
+  color: #fff;
+}
+.iconfont-mouse:before {
+  content: "\e986";
+  color: #fff;
+}
+.iconfont-orders:before {
+  content: "\e987";
+}
+.iconfont-pay-pal .path1:before {
+  content: "\e988";
+  color: rgb(40, 59, 130);
+}
+.iconfont-pay-pal .path2:before {
+  content: "\e989";
+  margin-left: -3.7529296875em;
+  color: rgb(40, 59, 130);
+}
+.iconfont-pay-pal .path3:before {
+  content: "\e98a";
+  margin-left: -3.7529296875em;
+  color: rgb(40, 59, 130);
+}
+.iconfont-pay-pal .path4:before {
+  content: "\e98b";
+  margin-left: -3.7529296875em;
+  color: rgb(70, 155, 219);
+}
+.iconfont-pay-pal .path5:before {
+  content: "\e98c";
+  margin-left: -3.7529296875em;
+  color: rgb(70, 155, 219);
+}
+.iconfont-pay-pal .path6:before {
+  content: "\e98d";
+  margin-left: -3.7529296875em;
+  color: rgb(70, 155, 219);
+}
+.iconfont-pay:before {
+  content: "\e98e";
+}
+.iconfont-pictogram:before {
+  content: "\e98f";
+}
+.iconfont-rewards:before {
+  content: "\e992";
+}
+.iconfont-sale:before {
+  content: "\e993";
+  color: #fff;
+}
+.iconfont-search:before {
+  content: "\e994";
+  color: #fff;
+}
+.iconfont-server:before {
+  content: "\e995";
+  color: #fff;
+}
+.iconfont-tablets-and-phones:before {
+  content: "\e996";
+  color: #fff;
+}
+.iconfont-tablets:before {
+  content: "\e997";
+}
+.iconfont-two-color-check .path1:before {
+  content: "\e99c";
+  color: rgb(0, 0, 0);
+}
+.iconfont-two-color-check .path2:before {
+  content: "\e99d";
+  margin-left: -1.2880859375em;
+  color: rgb(248, 248, 248);
+}
+.iconfont-wheelchair:before {
+  content: "\e99e";
+}
+.iconfont-workstations:before {
+  content: "\e99f";
+  color: #fff;
+}
+.iconfont-accessibility:before {
+  content: "\e904";
+}
+.iconfont-app-store .path1:before {
+  content: "\e905";
+  color: rgb(166, 166, 166);
+}
+.iconfont-app-store .path2:before {
+  content: "\e906";
+  margin-left: -3em;
+  color: rgb(0, 0, 0);
+}
+.iconfont-app-store .path3:before {
+  content: "\e907";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path4:before {
+  content: "\e908";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path5:before {
+  content: "\e909";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path6:before {
+  content: "\e90a";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path7:before {
+  content: "\e90b";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path8:before {
+  content: "\e90c";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path9:before {
+  content: "\e90d";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path10:before {
+  content: "\e90e";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path11:before {
+  content: "\e90f";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path12:before {
+  content: "\e910";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path13:before {
+  content: "\e911";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path14:before {
+  content: "\e912";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path15:before {
+  content: "\e913";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path16:before {
+  content: "\e914";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path17:before {
+  content: "\e915";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path18:before {
+  content: "\e916";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path19:before {
+  content: "\e917";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path20:before {
+  content: "\e918";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path21:before {
+  content: "\e919";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path22:before {
+  content: "\e91a";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path23:before {
+  content: "\e938";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path24:before {
+  content: "\e939";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-app-store .path25:before {
+  content: "\e93a";
+  margin-left: -3em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-gamingBlankStar:before {
+  content: "\e94e";
+}
+.iconfont-gamingYellowStar:before {
+  content: "\e94f";
+}
+.iconfont-geryStar:before {
+  content: "\e950";
+  color: #bcbcbc;
+}
+.iconfont-blankStar:before {
+  content: "\e94c";
+}
+.iconfont-pickup:before {
+  content: "\e937";
+}
+.iconfont-yellowStar:before {
+  content: "\e94a";
+  color: #ffb501;
+}
+.iconfont-cameras:before {
+  content: "\e951";
+  color: #fff;
+}
+.iconfont-globalSearchSupport:before {
+  content: "\e93e";
+}
+.iconfont-blackGroundCheck:before {
+  content: "\e93c";
+}
+.iconfont-lenovoLike:before {
+  content: "\e93d";
+  color: #7a126b;
+}
+.iconfont-arrowUpCto:before {
+  content: "\e900";
+  color: #294e95;
+}
+.iconfont-iconEditCto:before {
+  content: "\e901";
+  color: #294e95;
+}
+.iconfont-resetIcon:before {
+  content: "\e902";
+  color: #294e95;
+}
+.iconfont-rewardIcon:before {
+  content: "\e903";
+}
+.iconfont-alertIcon:before {
+  content: "\e931";
+  color: #c73d00;
+}
+.iconfont-alertIconMobile:before {
+  content: "\e932";
+  color: #c73d00;
+}
+.iconfont-ctoFile:before {
+  content: "\e933";
+  color: #294e95;
+}
+.iconfont-ctoWheel .path1:before {
+  content: "\e934";
+  color: rgb(0, 0, 0);
+}
+.iconfont-ctoWheel .path2:before {
+  content: "\e935";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconfont-tooltipIcon:before {
+  content: "\e936";
+}
+.iconfont-lenovoFallbackImage:before {
+  content: "\e930";
+  color: #bcbcbc;
+}
+.iconfont-lenovoLogoRed .path1:before {
+  content: "\e924";
+  color: rgb(255, 255, 255);
+}
+.iconfont-lenovoLogoRed .path2:before {
+  content: "\e92f";
+  margin-left: -3.099609375em;
+  color: rgb(225, 37, 27);
+}
+.iconfont-closeRed .path1:before {
+  content: "\e920";
+  color: rgb(255, 255, 255);
+}
+.iconfont-closeRed .path2:before {
+  content: "\e92e";
+  margin-left: -1em;
+  color: rgb(225, 37, 27);
+}
+.iconfont-check:before {
+  content: "\e91e";
+  color: #294e95;
+}
+.iconfont-minus:before {
+  content: "\e928";
+}
+.iconfont-plus:before {
+  content: "\e929";
+}
+.iconfont-hamburgerBlack:before {
+  content: "\e92b";
+}
+.iconfont-close:before {
+  content: "\e92c";
+}
+.iconfont-account:before {
+  content: "\e92d";
+}
+.iconfont-arrowDown:before {
+  content: "\e91c";
+}
+.iconfont-email:before {
+  content: "\e921";
+}
+.iconfont-position:before {
+  content: "\e927";
+}
+.iconfont-optele-chat:before {
+  content: "\e91f";
+}
+.iconfont-optele-tele:before {
+  content: "\e922";
+}
+.iconfont-optele-support:before {
+  content: "\e923";
+}
+.iconfont-homehero-left-arrow:before {
+  content: "\e926";
+  color: #fff;
+}
+.iconfont-homehero-right-arrow:before {
+  content: "\e925";
+  color: #fff;
+}
+.iconfont-tradeInIcon:before {
+  content: "\e940";
+}
+.iconfont-playAR:before {
+  content: "\e943";
+}
+.iconfont-cardHeartPurple:before {
+  content: "\e947";
+  color: #7a126b;
+}
+.iconfont-cardHeart:before {
+  content: "\e93f";
+}
+.iconfont-commingSoon:before {
+  content: "\e941";
+}
+.iconfont-deliveryMsg:before {
+  content: "\e942";
+}
+.iconfont-messgeLogo:before {
+  content: "\e944";
+}
+.iconfont-play3D:before {
+  content: "\e945";
+}
+.iconfont-play360:before {
+  content: "\e946";
+}
+.iconfont-playVideo:before {
+  content: "\e948";
+}
+.iconfont-specialOffer:before {
+  content: "\e949";
+}
+.iconfont-whatIsInBox:before {
+  content: "\e94b";
+}
+.iconfont-cpu-gpu-storage1:before {
+  content: "\e9a3";
+}
+

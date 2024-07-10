@@ -1,0 +1,10 @@
+<svg id="icon_plus_16" data-name="icon/plus/16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_1520" data-name="Path 1520" d="M11.308-6.719H6.923V-11.1a.694.694,0,0,0-.692-.692H5.769a.694.694,0,0,0-.692.692v4.385H.692A.694.694,0,0,0,0-6.027v.462a.68.68,0,0,0,.692.692H5.077V-.489A.68.68,0,0,0,5.769.2h.462a.68.68,0,0,0,.692-.692V-4.873h4.385A.68.68,0,0,0,12-5.565v-.462A.694.694,0,0,0,11.308-6.719Z" transform="translate(0 11.796)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_225" data-name="Group 225" clip-path="url(#clip-path)">
+    <path id="Path_1519" data-name="Path 1519" d="M-5-16.8H17.192V5.4H-5Z" transform="translate(-0.096 11.7)"/>
+  </g>
+</svg>

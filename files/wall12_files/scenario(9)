@@ -1,0 +1,84 @@
+window.DigitalFeedback['https://digitalfeedback.us.confirmit.com/api/digitalfeedback/loader/prod/scenario?programKey=Eh6Au0&scenarioId=9354&programVersion=233'] = function (api) {
+getLang = function(languagecode,countrycode,doNEC,pid)
+{
+ var lstr = ""+languagecode;
+ var lstrlc = lstr.toLowerCase();
+ var lcc = ""+countrycode;
+ var lcclc = lcc.toLowerCase();
+ var spid = ""+pid;
+  
+ var lngCodes = {
+  "tw" : "1028",
+  "da" : "6",
+  "nl" : "19",
+  "en" : "9",
+  "fi" : "11",
+  "fr" : "12",
+  "fr_ca": "3084",
+  "de" : "7",
+  "it" : "16",
+  "ja" : "17",
+  "ko" : "18",
+  "no" : "20",
+  "pt" : "22",
+  "pt_br" : "1046",
+  "sp" : "10",
+  "es" : "10",
+  "es_mx" : "2058",
+  "sv" : "29",
+  "th" : "30",
+  "ru" : "25",
+  "zh" : "1028",
+ }
+ 
+ if( doNEC )
+ {
+   return  lngCodes[lstrlc];
+ }
+
+if( pid == "p3094292724" )
+{
+    if(lstrlc == 'es' && lcclc == 'mx')
+	{
+		return  lngCodes['es_mx'];
+	}
+	else if (lstrlc == 'pt' && lcclc == 'br')
+	{
+		return  lngCodes['pt_br'];
+	}
+	else
+	{
+		return  lngCodes[lstrlc];
+	}  
+}
+  
+if( pid == "p3094257258" )
+{
+    if(lstrlc == 'es')
+    {
+      if(lcclc == 'es')
+      {
+		return '10';   
+      }
+      else
+      {
+        return  '2058';
+      }
+	} 
+ 	else if (lstrlc == 'fr' && lcclc == 'ca')
+	{
+		return  lngCodes['fr_ca'];
+	}
+	else if (lstrlc == 'pt' && lcclc == 'br')
+	{
+		return  lngCodes['pt_br'];
+	}
+	else
+	{
+		return  lngCodes[lstrlc];
+	}
+}
+  return  lngCodes[lstrlc];
+}
+
+};
